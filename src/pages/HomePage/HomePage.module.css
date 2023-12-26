@@ -1,0 +1,6 @@
+.mosque {
+  /* Assuming you're sure about the color and the path is correct. */
+  background: url('/assets/mosque2.svg') no-repeat bottom / cover !important;
+  height: 80vh;
+  margin-top: 0px;
+}

@@ -1,0 +1,13 @@
+.nav {
+  a {
+    color: black;
+    &:hover {
+      color: blue;
+    }
+    
+  }
+  a.active {
+    color: blue;
+  }
+  
+}

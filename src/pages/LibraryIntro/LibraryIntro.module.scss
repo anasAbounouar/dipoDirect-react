@@ -1,0 +1,11 @@
+.bienvenue {
+  background-image: url('../../assets/library-home/image-1.png');
+  background-position: center;
+  background-size: cover;
+  height: calc(100vh - 66px);
+  .row {
+    .library-name {
+      color: var(--arrissala-color);
+    }
+  }
+}

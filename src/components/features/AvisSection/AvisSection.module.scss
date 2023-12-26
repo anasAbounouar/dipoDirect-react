@@ -1,0 +1,41 @@
+.avis {
+  position: relative;
+  padding-top: 10px;
+}
+.box {
+  padding: 30px;
+  border-radius: 6px;
+  margin-bottom: 80px;
+  small {
+    font-size: 80%;
+  }
+  > span {
+    text-align: center;
+    display: block;
+  }
+}
+.comment {
+  color: #000;
+
+  font-style: italic;
+  line-height: 25px;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  // box-shadow: 1px 1px 5px var(--secondary-color-green);
+  position: relative;
+}
+.quoteRight {
+  position: absolute;
+  right: 0px;
+  bottom: -13px;
+  font-size: 30px;
+}
+.quoteLeft {
+  position: absolute;
+  left: 0px;
+  top: -13px;
+  font-size: 30px;
+}
