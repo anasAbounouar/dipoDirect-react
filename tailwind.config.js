@@ -29,6 +29,14 @@ export default {
         myTealBlue: '#009688',
         myContent: '#EEEE',
       },
+      margin: {
+        'sidebar-expanded': '300px',
+        'sidebar-collapsed': '62px',
+      },
+      width: {
+        'sidebar-expanded': '300px',
+        'sidebar-collapsed': '62px',
+      },
     },
   },
   plugins: [require('flowbite/plugin')],

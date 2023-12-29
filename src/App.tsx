@@ -1,9 +1,11 @@
 import './App.css';
 import '../tailwind.css';
+import '../src/components/features/SideFilter/SideFilter.module.scss';
 import '../src/styles/normalize.scss';
 import '../src/styles/main.scss';
 import '../src/styles/variables.scss';
 import '../src/styles/all.min.css';
+
 import Footer from './components/layout/Footer/Footer';
 import Navbar from './components/layout/Navbar/Navbar';
 import HomePage from './pages/HomePage/HomePage';

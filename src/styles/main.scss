@@ -1,3 +1,5 @@
+// Import your SideFilter SCSS module
+@import '../src/components/features/SideFilter/SideFilter.module.scss';
 .custom-shadow {
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
@@ -23,4 +25,53 @@
 .slider-arrow::after {
   content: '' !important; /* or any other character or symbol */
   /* Additional styling as needed */
+}
+
+.myGrid {
+  justify-items: center; /* Horizontally center */
+
+  transition: 0.4s;
+  display: grid !important; /* Enables grid layout */
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(200px, 1fr)
+  ) !important; /* Creates as many columns as can fit of at least 200px wide */
+  gap: 20px !important; /* Space between columns and rows */
+  padding: 20px !important; /* Padding around the grid */
+  max-width: 1500px !important; /* Maximum width of the grid */
+  margin: 0 auto !important; /* Center the grid horizontally */
+  > div {
+    width: 100% !important;
+    transition: 0.4s;
+  }
+}
+
+@media (max-width: 767px) {
+  .myGrid {
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(150px, 1fr)
+    ) !important; /* Creates as many columns as can fit of at least 200px wide */
+  }
+}
+.pagination-button {
+  margin-left: 8px; /* equivalent to mx-2 */
+  transform: rotate(180deg);
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  background-color: white; /* equivalent to !bg-white */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination-button i {
+  font-size: 20px; /* equivalent to text-[20px] */
+}
+.pagination-button:disabled {
+  cursor: not-allowed; /* Change cursor to indicate the button is disabled */
+  opacity: 0.5; /* Make the button appear faded */
+  box-shadow: none; /* Remove shadow to make it look flat and inactive */
 }

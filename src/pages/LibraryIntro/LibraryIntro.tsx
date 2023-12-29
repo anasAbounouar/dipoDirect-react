@@ -1,5 +1,5 @@
 import { useNavigate, useParams } from 'react-router-dom';
-import { libraryDatas } from '../../../data/LibraryIntroData';
+import { libraryDatas } from '../../data/LibraryIntroData';
 import { ResourceCollection } from '../../../interfaces/LibraryType';
 import styles from './LibraryIntro.module.scss';
 import { useEffect, useState } from 'react';
