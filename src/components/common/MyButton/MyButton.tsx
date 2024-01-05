@@ -6,7 +6,7 @@ interface ButtonProps {
   onClick: () => void;
   icon?: JSX.Element; // Icon should be a JSX element
   className?: string;
-  ariaLabel?: string; // ARIA label for accessibility
+  ariaLabel: string; // ARIA label for accessibility
   height?: string;
 }
 
@@ -20,11 +20,12 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
+      role="button"
       onClick={onClick}
       className={`btn ${className || ''} ${
         height || 'h-[50px]'
       } flex flex-row items-center justify-center`}
-      aria-label={ariaLabel || text} // Fallback to text if no ariaLabel is provided
+      aria-label={ariaLabel} // Fallback to text if no ariaLabel is provided
       tabIndex={0} // Ensure button is focusable
     >
       {text}

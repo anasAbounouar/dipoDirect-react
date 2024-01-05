@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LibraryIntro from './pages/LibraryIntro/LibraryIntro';
 import Items from './pages/Items/Items';
 import NotFound from './pages/NotFound/NotFound';
+import LoginPage from './pages/Accounts/Login/Login';
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route index path="/" element={<HomePage />} />
         <Route path="library-intro/:chosenLibrary" element={<LibraryIntro />} />
         <Route path="library-intro/:chosenLibrary/:type" element={<Items />} />
+        <Route path="login" element={<LoginPage />} />
         <Route path="not-found" element={<NotFound />} />
       </Routes>
       <Footer />

@@ -50,6 +50,7 @@ export default function HomePage() {
               {/* Use the SelectComponent here */}
               <form>
                 <SelectComponent
+                  labelId="supplierSelectLabel"
                   options={options}
                   selectedOption={selectedOption}
                   setSelectedOption={setSelectedOption}

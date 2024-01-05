@@ -1,5 +1,4 @@
 import MyButton from '../../common/MyButton/MyButton';
-import { useState } from 'react';
 
 // Define the type for the box prop expected by the component
 interface Box {
@@ -84,14 +83,10 @@ export default function LibraryClass({ box, goToPage }: LibraryClassProps) {
             box.name
           )} text-white   absolute bottom-0  left-1/2 transform -translate-y-1/2 -translate-x-1/2`} // Corrected the translate utility classes
           onClick={() => goToPage(box.pageSrc)}
-          ariaLabel={`Go to ${box.name}`} // Assuming you have an ariaLabel prop for accessibility
+          ariaLabel={`Choose ${box.name} `} // Assuming you have an ariaLabel prop for accessibility
           text={box.btn}
           height="30"
-          icon={
-            <>
-              <i className="ml-3 fa-solid fa-right-from-bracket"></i>
-            </>
-          }
+          icon={<i className="ml-3 fa-solid fa-right-from-bracket"></i>}
         />
       </div>
     </div>

@@ -12,6 +12,7 @@ interface SelectComponentProps {
   onChange?: (value: string) => void;
   setSelectedOption?: (value: string) => void;
   selectedOption?: string;
+  labelId: string; // for accessibility
 }
 
 export default function SelectComponent({
@@ -20,6 +21,7 @@ export default function SelectComponent({
   onChange,
   setSelectedOption,
   selectedOption,
+  labelId,
 }: SelectComponentProps) {
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
     const value = event.target.value;
@@ -33,7 +35,11 @@ export default function SelectComponent({
 
   return (
     <div className="w-full max-w-xs mx-auto">
+      <label htmlFor={labelId} className="sr-only">
+        {placeholder}
+      </label>
       <select
+        id={labelId}
         name="choisir"
         value={selectedOption}
         onChange={handleSelectChange}

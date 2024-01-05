@@ -79,16 +79,18 @@ const ItemCard = memo(
           <div className="down-actions my-3 flex flex-col items-center justify-center">
             {/* Description Panel */}
             <div className="flex items-center flex-col descriptionPanier">
-              <div className="level text-[#777]">{item.level}</div>
-              <div className="title">{item.title}</div>
-              <div className="nowprice text-myBrand">{item.price} DH</div>
+              <div className="level text-[#333]">{item.level}</div>
+              <div className="title text-black font-[600]">{item.title}</div>
+              <div className="nowprice text-blue-600 font-bold bg-white">
+                {item.price} DH
+              </div>
             </div>
 
             {/* Action Panel */}
             <div className="flex items-center p-2 justify-between actionPanier gap-3">
               <button
                 onClick={onAddToCart}
-                className={`btn btn-primary bg-myBrand ajouter ${
+                className={`btn   bg-[#004494]    text-white  ajouter ${
                   item.addedToCart ? 'addedToCartClass' : ''
                 }`}
                 aria-pressed={item.addedToCart} // Indicates the state of the button
@@ -98,7 +100,7 @@ const ItemCard = memo(
                     ? 'Item has been added to the cart'
                     : 'Add item to the cart'}
                 </span>
-                <span aria-hidden="true">
+                <span aria-hidden="true" className="text-white">
                   {' '}
                   {/* Visually hidden text for screen readers */}
                   {item.addedToCart ? 'Bien ajouté' : '+ Ajouter au panier'}
@@ -107,6 +109,7 @@ const ItemCard = memo(
 
               {/* Replace with your actual preview functionality */}
               <button
+                tabIndex={-1}
                 className="btn btn-primary apercu hidden lg:flex items-center h-10 justify-center bg-yellow-200"
                 aria-hidden="true"
               >

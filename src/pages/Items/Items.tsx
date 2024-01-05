@@ -296,10 +296,11 @@ export default function Items() {
               &gt;
             </span>
 
-            <span className="text-gray-500 lg:text-2xl capitalize">{type}</span>
+            <span className="text-gray-900 lg:text-2xl capitalize">{type}</span>
           </div>
           <div className="w-full lg:w-1/2 py-3">
             <SelectComponent
+              labelId="cathegoryOfBooksSelectLabel"
               options={typeOptions}
               onChange={handleChange}
               selectedOption={selectType}

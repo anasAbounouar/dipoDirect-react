@@ -75,3 +75,18 @@
   opacity: 0.5; /* Make the button appear faded */
   box-shadow: none; /* Remove shadow to make it look flat and inactive */
 }
+
+// For buttons and interactive elements
+.btn-primary {
+  background-color: var(--my-brand-color); // A strong, accessible blue
+  color: white; // White text for contrast
+}
+
+// .btn-primary.ajouter {
+//   background-color: #004494; // Slightly darker for added button
+// }
+
+.apercu {
+  background-color: #f9a825; // A bright yellow for visibility
+  color: #333; // Dark text for contrast
+}

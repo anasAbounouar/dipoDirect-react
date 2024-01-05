@@ -81,13 +81,13 @@ function SideFilter({
       onMouseEnter={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: true })}
       onMouseLeave={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
     >
-      <button className="sidebarArrow" aria-hidden="true">
+      <div className="sidebarArrow" aria-hidden="true">
         <i
           className={`fa-solid fa-angles-right  ${
             !isSideBarActive ? '' : 'transform rotate-180'
           }`}
         ></i>
-      </button>
+      </div>
       <div id="language" className={` c-black text-[32px] font-[500]`}>
         <h4>Language</h4>
         <form

@@ -28,6 +28,7 @@ export default {
         myNonImportantText: '#A0ABC0',
         myTealBlue: '#009688',
         myContent: '#EEEE',
+        myLogin: '#D18742',
       },
       margin: {
         'sidebar-expanded': '300px',
