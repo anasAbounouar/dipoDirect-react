@@ -22,6 +22,8 @@ import LoginPage from './pages/Accounts/Login/Login';
 import About from './pages/About/About';
 import { useState } from 'react';
 import MobileNavigationBar from './components/layout/MobileNavigationBar/MobileNavigationBar';
+import { useMediaQuery } from 'react-responsive';
+
 type Book = {
   id: number;
   title: string;
@@ -54,6 +56,7 @@ type UserShoppingSession = {
   // ... add more libraries if necessary
 };
 function App() {
+  const isSmallScreen = useMediaQuery({ maxWidth: 1024 });
   const [userShoppingSession, setUserShoppingSession] =
     useState<UserShoppingSession>({
       arrissala: {
@@ -91,10 +94,6 @@ function App() {
         },
       },
     });
-  console.log(
-    'usershopping',
-    userShoppingSession.arrissala.ecritures.wishlistBooks.length
-  );
 
   const categories = ['papeterie', 'ecritures', 'organisation'];
 
@@ -143,18 +142,17 @@ function App() {
             />
           }
         />
-        <Route
-          path="login"
-          element={<LoginPage  setUser={setUser} />}
-        />
+        <Route path="login" element={<LoginPage setUser={setUser} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <MobileNavigationBar
-        user={user}
-        userShoppingSession={userShoppingSession}
-        wishlistTotalCount={wishlistTotalCount}
-        cartTotalCount={cartTotalCount}
-      />
+      {isSmallScreen && (
+        <MobileNavigationBar
+          user={user}
+          userShoppingSession={userShoppingSession}
+          wishlistTotalCount={wishlistTotalCount}
+          cartTotalCount={cartTotalCount}
+        />
+      )}
       <Footer />
     </Router>
   );

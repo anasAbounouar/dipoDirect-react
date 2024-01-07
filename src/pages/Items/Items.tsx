@@ -12,7 +12,6 @@ import { useReducer } from 'react';
 import LoadingIndicator from '../../components/common/LoadingIndicator/LoadingIndicator.js';
 import { useMediaQuery } from 'react-responsive';
 import { addToCart, addToWishlist } from '../../data/CartManager.ts';
-
 // Custom hook to determine if the device is mobile based on screen width
 const useIsMobile = () => {
   const isMobileDevice = useMediaQuery({ maxWidth: 767 });
@@ -86,13 +85,26 @@ const primaryLevels = ['Tout', 'CP', 'CE1', 'CE2', 'CM1', 'CM2'];
 const middleSchoolLevels = ['Tout', '1ère année', '2ème année', '3ème année'];
 const highSchoolLevels = ['Tout', 'Tranc Commun', '1 Bac', '2 Bac'];
 
+const typeOptions = [
+  { label: 'Ecriture', value: 'ecritures', id: 0 },
+  {
+    label: 'Organisation',
+    value: 'Organisations',
+    id: 1,
+  },
+  {
+    label: 'Papeterie',
+    value: 'papeterie',
+    id: 2,
+  },
+];
+
 const itemsPerPage = 10; // Number of items to display per page
 export default function Items({ userShoppingSession, setUserShoppingSession }) {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
   const { type, chosenLibrary } = useParams();
-
 
   const [state, dispatch] = useReducer(reducer, initialFilterState);
 
@@ -101,19 +113,7 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
     dispatch({ type: 'SIDE-BAR', payload: !state.isSideBarActive });
   };
   // possibility to change {type}
-  const typeOptions = [
-    { label: 'Ecriture', value: 'Ecritures', id: 0 },
-    {
-      label: 'Organisation',
-      value: 'Organisations',
-      id: 1,
-    },
-    {
-      label: 'Papeterie',
-      value: 'papeterie',
-      id: 2,
-    },
-  ];
+
   const [selectType, setSelectType] = useState<string | undefined>(type); // Set state with type
 
   useEffect(() => {
@@ -145,7 +145,7 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
   useEffect(() => {
     setIsloading(true);
     // Step 2: Fetch the data
-    fetch(`http://localhost:${port}/${type}`)
+    fetch(` http://192.168.1.127:${port}/${type}`)
       .then(response => response.json())
       .then(data => {
         // Step 3: Set the state
@@ -254,6 +254,26 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
     return false;
   };
 
+  const addedToWishlist = item => {
+    const bookIndex = userShoppingSession[chosenLibrary][
+      type
+    ].wishlistBooks.findIndex(book => book.id === item.id);
+    if (bookIndex !== -1) {
+      return true;
+    }
+    return false;
+  };
+  const addedToCart = item => {
+    const bookIndex = userShoppingSession[chosenLibrary][
+      type
+    ].purchasedBooks.findIndex(purchasedItem => {
+      return purchasedItem.book.id === item.id;
+    });
+    if (bookIndex !== -1) {
+      return true;
+    }
+    return false;
+  };
   return (
     <section id="intern" className="relative pb-4 bg-myContent">
       {showFiter() && (
@@ -329,6 +349,78 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
             <strong className="mx-1">{finalFilter().length}</strong> resultats
           </p>
 
+          {displayedItems.length > 0 && (
+            <div className="flex justify-end m-4">
+              <button
+                onClick={prevPage}
+                className="pagination-button"
+                disabled={!shouldShowPrev} // Disable if on the first page
+                aria-disabled={!shouldShowPrev} //imporve accessibility
+                aria-label="Load previous set of items"
+              >
+                <i className="fa-solid fa-arrow-right " aria-hidden="true"></i>
+                {/* Changed to arrow-left for prev */}
+              </button>
+
+              <button
+                onClick={nextPage}
+                className="pagination-button ml-2"
+                disabled={!shouldShowNext} // Disable if on the last page
+                aria-disabled={!shouldShowNext} //imporve accessibility
+                aria-label="Load next set of items"
+              >
+                <i className="fa-solid  fa-arrow-left" aria-hidden="true"></i>
+              </button>
+            </div>
+          )}
+        </h5>
+        <section className="min-h-96">
+          {/* Conditional rendering based on isLoading */}
+          {isLoading ? (
+            <h1>
+              <LoadingIndicator />
+            </h1>
+          ) : displayedItems.length === 0 ? (
+            <h2 className="font-bold text-xl mt-9">
+              Pas de Resulat qui correspond a votre recherche :/
+            </h2>
+          ) : (
+            <div className="mt-4 myGrid">
+              {displayedItems.map(item => (
+                <ItemCard
+                  key={item.id}
+                  item={item}
+                  heartIconClass={
+                    addedToWishlist(item) ? 'fa-solid' : 'fa-regular'
+                  }
+                  addedToWishlist={addedToWishlist(item)}
+                  addedToCart={addedToCart(item)}
+                  onWishlistToggle={() => {
+                    addToWishlist(
+                      userShoppingSession,
+                      setUserShoppingSession,
+                      chosenLibrary,
+                      type,
+                      item
+                    );
+                  }}
+                  onAddToCart={() => {
+                    addToCart(
+                      userShoppingSession,
+                      setUserShoppingSession,
+                      chosenLibrary,
+                      type,
+                      item
+                    );
+                    // Your logic to handle add to cart
+                  }}
+                />
+              ))}
+            </div>
+          )}
+        </section>
+
+        {displayedItems.length > 0 && (
           <div className="flex justify-end m-4">
             <button
               onClick={prevPage}
@@ -351,67 +443,7 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
               <i className="fa-solid  fa-arrow-left" aria-hidden="true"></i>
             </button>
           </div>
-        </h5>
-        {/* Conditional rendering based on isLoading */}
-        {isLoading ? (
-          <h1>
-            <LoadingIndicator />
-          </h1>
-        ) : (
-          <div className="mt-4 myGrid">
-            {displayedItems.map(item => (
-              <ItemCard
-                key={item.id}
-                item={item}
-                heartIconClass={
-                  item.addedToWishlist ? 'fa-solid' : 'fa-regular'
-                }
-                onWishlistToggle={() => {
-                  addToWishlist(
-                    userShoppingSession,
-                    setUserShoppingSession,
-                    chosenLibrary,
-                    type,
-                    item
-                  );
-                }}
-                onAddToCart={() => {
-                  addToCart(
-                    userShoppingSession,
-                    setUserShoppingSession,
-                    chosenLibrary,
-                    type,
-                    item
-                  );
-                  // Your logic to handle add to cart
-                }}
-              />
-            ))}
-          </div>
         )}
-
-        <div className="flex justify-end m-4">
-          <button
-            onClick={prevPage}
-            className="pagination-button"
-            disabled={!shouldShowPrev} // Disable if on the first page
-            aria-disabled={!shouldShowPrev} //imporve accessibility
-            aria-label="Load previous set of items"
-          >
-            <i className="fa-solid fa-arrow-right " aria-hidden="true"></i>
-            {/* Changed to arrow-left for prev */}
-          </button>
-
-          <button
-            onClick={nextPage}
-            className="pagination-button ml-2"
-            disabled={!shouldShowNext} // Disable if on the last page
-            aria-disabled={!shouldShowNext} //imporve accessibility
-            aria-label="Load next set of items"
-          >
-            <i className="fa-solid  fa-arrow-left" aria-hidden="true"></i>
-          </button>
-        </div>
       </div>
     </section>
   );

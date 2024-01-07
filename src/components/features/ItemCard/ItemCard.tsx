@@ -4,30 +4,39 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
-import React, { memo } from 'react';
+import { memo } from 'react';
+import styles from './ItemCard.module.scss';
 const card = {
   borderRadius: '10px',
   background: 'white',
   boxShadow: '0px 2.423px 2.423px 0px rgba(0, 0, 0, 0.25)',
 };
 const ItemCard = memo(
-  ({ item, heartIconClass, onWishlistToggle, onAddToCart }) => {
+  ({
+    item,
+    heartIconClass,
+    onWishlistToggle,
+    onAddToCart,
+    addedToCart,
+    addedToWishlist,
+  }) => {
     return (
-      <div className={`w-5/12 lg:w-2/12 m-1 bg-white `} style={card}>
+      <div
+        className={`w-5/12 lg:w-2/12 m-1 bg-white ${styles.itemCard}`}
+        style={card}
+      >
         <div className="px-1">
           {/* Heart icon for adding to wishlist */}
           <div className="relative pb-4 pt-2">
             <button
               onClick={onWishlistToggle}
-              className="absolute z-50 bg-transparent p-1 left-0 top-0 text-myHeartColor"
+              className="absolute z-50 bg-transparent  p-1 left-0 top-0 text-myHeartColor outline-none hover:border-color-none"
               aria-label={
-                item.addedToWishlist
-                  ? 'Remove from wishlist'
-                  : 'Add to wishlist'
+                addedToWishlist ? 'Remove from wishlist' : 'Add to wishlist'
               }
             >
               <i
-                className={`${heartIconClass} fa-heart text-[25px] my-heart`}
+                className={`${heartIconClass} fa-heart text-[25px] my-heart hover:text-[28px] duration-200`}
               ></i>
             </button>
           </div>
@@ -90,25 +99,31 @@ const ItemCard = memo(
             <div className="flex items-center p-2 justify-between actionPanier gap-3">
               <button
                 onClick={onAddToCart}
-                className={`btn   bg-[#004494]    text-white  ajouter ${
-                  item.addedToCart ? 'addedToCartClass' : ''
-                }`}
-                aria-pressed={item.addedToCart} // Indicates the state of the button
+                className={`btn addToCartBtn    bg-[#004494]    text-white  ajouter ${
+                  addedToCart ? 'addedToCartClass' : ''
+                }  ${addedToCart ? 'bg-myBrand' : ''}`}
+                aria-pressed={addedToCart} // Indicates the state of the button
               >
                 <span className="sr-only">
-                  {item.addedToCart
+                  {addedToCart
                     ? 'Item has been added to the cart'
                     : 'Add item to the cart'}
                 </span>
-                <span aria-hidden="true" className="text-white">
-                  {' '}
+                <span aria-hidden="true" className={`text-white `}>
                   {/* Visually hidden text for screen readers */}
-                  {item.addedToCart ? 'Bien ajouté' : '+ Ajouter au panier'}
+                  {addedToCart ? (
+                    'Bien ajouté ✓'
+                  ) : (
+                    <span>
+                      + Ajouter au panier{' '}
+                      <i className="fa fa-shopping-cart"></i>
+                    </span>
+                  )}
                 </span>
               </button>
 
               {/* Replace with your actual preview functionality */}
-              <button
+              {/* <button
                 tabIndex={-1}
                 className="btn btn-primary apercu hidden lg:flex items-center h-10 justify-center bg-yellow-200"
                 aria-hidden="true"
@@ -125,7 +140,7 @@ const ItemCard = memo(
                     fill="green"
                   />
                 </svg>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
