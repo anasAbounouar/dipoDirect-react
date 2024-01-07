@@ -5,32 +5,158 @@ import '../src/styles/normalize.scss';
 import '../src/styles/main.scss';
 import '../src/styles/variables.scss';
 import '../src/styles/all.min.css';
-
 import Footer from './components/layout/Footer/Footer';
 import Navbar from './components/layout/Navbar/Navbar';
 import HomePage from './pages/HomePage/HomePage';
 import 'flowbite';
-
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from 'react-router-dom';
 import LibraryIntro from './pages/LibraryIntro/LibraryIntro';
 import Items from './pages/Items/Items';
 import NotFound from './pages/NotFound/NotFound';
 import LoginPage from './pages/Accounts/Login/Login';
+import About from './pages/About/About';
+import { useState } from 'react';
+import MobileNavigationBar from './components/layout/MobileNavigationBar/MobileNavigationBar';
+type Book = {
+  id: number;
+  title: string;
+  level: string;
+  imgSrc: string[];
+  price: string; // or number if you want to store it as a numerical value
+  addedToCart: boolean;
+  addedToWishlist: boolean;
+  littleBooksCount: number;
+  maxQuantity: number;
+};
+// Define the structure of a category like 'ecritures', 'papeterie', or 'organisation'
+type Category = {
+  totalPrice: number;
+  wishlistBooks: Book[]; // assuming wishlistBooks is an array of Books
+  purchasedBooks: Book[]; // assuming purchasedBooks is an array of Books
+};
+
+// Define the structure of a library like 'arrissala' or 'aladnane'
+type Library = {
+  ecritures: Category;
+  papeterie: Category;
+  organisation: Category;
+};
+
+// Define the structure of the entire userShoppingSession
+type UserShoppingSession = {
+  arrissala: Library;
+  aladnane: Library;
+  // ... add more libraries if necessary
+};
 function App() {
+  const [userShoppingSession, setUserShoppingSession] =
+    useState<UserShoppingSession>({
+      arrissala: {
+        ecritures: {
+          totalPrice: 0,
+          wishlistBooks: [],
+          purchasedBooks: [],
+        },
+        papeterie: {
+          totalPrice: 0,
+          wishlistBooks: [],
+          purchasedBooks: [],
+        },
+        organisation: {
+          totalPrice: 0,
+          wishlistBooks: [],
+          purchasedBooks: [],
+        },
+      },
+      aladnane: {
+        ecritures: {
+          totalPrice: 0,
+          wishlistBooks: [],
+          purchasedBooks: [],
+        },
+        papeterie: {
+          totalPrice: 0,
+          wishlistBooks: [],
+          purchasedBooks: [],
+        },
+        organisation: {
+          totalPrice: 0,
+          wishlistBooks: [],
+          purchasedBooks: [],
+        },
+      },
+    });
+  console.log(
+    'usershopping',
+    userShoppingSession.arrissala.ecritures.wishlistBooks.length
+  );
+
+  const categories = ['papeterie', 'ecritures', 'organisation'];
+
+  const wishlistTotalCount = Object.keys(userShoppingSession).reduce(
+    (totalLibraryCount, library) => {
+      const libraryCount = categories.reduce((totalCategoryCount, category) => {
+        const categoryWishlist =
+          userShoppingSession[library][category]?.wishlistBooks;
+        return (
+          totalCategoryCount + (categoryWishlist ? categoryWishlist.length : 0)
+        );
+      }, 0);
+
+      return totalLibraryCount + libraryCount;
+    },
+    0
+  );
+  // Calculating total count of items in the cart across all libraries and categories
+  const cartTotalCount = Object.keys(userShoppingSession).reduce(
+    (totalLibraryCount, library) => {
+      const libraryCount = categories.reduce((totalCategoryCount, category) => {
+        const categoryCart =
+          userShoppingSession[library][category]?.purchasedBooks;
+        return totalCategoryCount + (categoryCart ? categoryCart.length : 0);
+      }, 0);
+
+      return totalLibraryCount + libraryCount;
+    },
+    0
+  );
+  const [user, setUser] = useState(null);
   return (
     <Router>
       <Navbar />
 
       <Routes>
         <Route index path="/" element={<HomePage />} />
+        <Route index path="/about" element={<About />} />
         <Route path="library-intro/:chosenLibrary" element={<LibraryIntro />} />
-        <Route path="library-intro/:chosenLibrary/:type" element={<Items />} />
-        <Route path="login" element={<LoginPage />} />
-        <Route path="not-found" element={<NotFound />} />
+        <Route
+          path="library-intro/:chosenLibrary/:type"
+          element={
+            <Items
+              userShoppingSession={userShoppingSession}
+              setUserShoppingSession={setUserShoppingSession}
+            />
+          }
+        />
+        <Route
+          path="login"
+          element={<LoginPage  setUser={setUser} />}
+        />
+        <Route path="*" element={<NotFound />} />
       </Routes>
+      <MobileNavigationBar
+        user={user}
+        userShoppingSession={userShoppingSession}
+        wishlistTotalCount={wishlistTotalCount}
+        cartTotalCount={cartTotalCount}
+      />
       <Footer />
     </Router>
   );
 }
-
 export default App;

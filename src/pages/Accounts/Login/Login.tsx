@@ -20,7 +20,7 @@ const ways = [
   },
 ];
 
-const LoginPage = () => {
+const LoginPage = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -31,6 +31,7 @@ const LoginPage = () => {
     if (user) {
       toggleLogin();
       navigate('/');
+      setUser(user);
     } else {
       console.log('user not correct');
     }

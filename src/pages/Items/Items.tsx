@@ -11,6 +11,7 @@ import ItemCard from '../../components/features/ItemCard/ItemCard.tsx';
 import { useReducer } from 'react';
 import LoadingIndicator from '../../components/common/LoadingIndicator/LoadingIndicator.js';
 import { useMediaQuery } from 'react-responsive';
+import { addToCart, addToWishlist } from '../../data/CartManager.ts';
 
 // Custom hook to determine if the device is mobile based on screen width
 const useIsMobile = () => {
@@ -86,11 +87,12 @@ const middleSchoolLevels = ['Tout', '1ère année', '2ème année', '3ème anné
 const highSchoolLevels = ['Tout', 'Tranc Commun', '1 Bac', '2 Bac'];
 
 const itemsPerPage = 10; // Number of items to display per page
-export default function Items() {
+export default function Items({ userShoppingSession, setUserShoppingSession }) {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
   const { type, chosenLibrary } = useParams();
+
 
   const [state, dispatch] = useReducer(reducer, initialFilterState);
 
@@ -365,9 +367,22 @@ export default function Items() {
                   item.addedToWishlist ? 'fa-solid' : 'fa-regular'
                 }
                 onWishlistToggle={() => {
-                  // Your logic to handle wishlist toggle
+                  addToWishlist(
+                    userShoppingSession,
+                    setUserShoppingSession,
+                    chosenLibrary,
+                    type,
+                    item
+                  );
                 }}
                 onAddToCart={() => {
+                  addToCart(
+                    userShoppingSession,
+                    setUserShoppingSession,
+                    chosenLibrary,
+                    type,
+                    item
+                  );
                   // Your logic to handle add to cart
                 }}
               />

@@ -19,7 +19,7 @@ export const libraryDatas: ResourceCollection[] = [
         description: ' Crayons, Stylos, Marqueurs, Surligneurs, Gommes, etc.',
         btn: 'Écriture',
         imgSrc: '..//assets/library-home/ecriture-image.svg',
-        pageSrc: 'Ecritures',
+        pageSrc: 'ecritures',
       },
       {
         id: 2,
@@ -28,7 +28,7 @@ export const libraryDatas: ResourceCollection[] = [
           ' Classeurs, Chemises, Porte-documents, Pochettes, Trombones, Agrafeuses, etc..',
         btn: 'Oranisation',
         imgSrc: '..//assets/library-home/organisation-image.svg',
-        pageSrc: '/',
+        pageSrc: '/organisation',
       },
     ],
   },

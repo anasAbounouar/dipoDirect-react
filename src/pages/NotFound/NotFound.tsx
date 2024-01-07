@@ -1,3 +1,3 @@
 export default function Notfound() {
-  return <div>Not found </div>;
+  return <div>page Not found or in maintainance </div>;
 }

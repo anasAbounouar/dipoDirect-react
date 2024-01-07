@@ -8,7 +8,7 @@ export default function Footer() {
           <img
             className="mt-3"
             src="/assets/footer/footer_cc.png"
-            alt="Accepted credit cards"
+            alt="Accepted credit cards (visa & mastercard)"
           />
         </div>
 
