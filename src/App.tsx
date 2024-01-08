@@ -23,6 +23,7 @@ import About from './pages/About/About';
 import { useEffect, useState } from 'react';
 import MobileNavigationBar from './components/layout/MobileNavigationBar/MobileNavigationBar';
 import { useMediaQuery } from 'react-responsive';
+import Item from './pages/Item/Item';
 
 type Book = {
   id: number;
@@ -144,6 +145,15 @@ function App() {
               setUserShoppingSession={setUserShoppingSession}
               isSideBarActive={isSideBarActive}
               setIsSideBarActive={setIsSideBarActive}
+            />
+          }
+        />
+        <Route
+          path="library-intro/:chosenLibrary/:type/:bookId"
+          element={
+            <Item
+              userShoppingSession={userShoppingSession}
+              setUserShoppingSession={setUserShoppingSession}
             />
           }
         />

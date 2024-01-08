@@ -1,0 +1,682 @@
+{
+  "papeterie": {
+    "library": "Aladnane",
+    "name": "livres",
+    "arrow": "Livres & Histoires",
+    "cartCount": 0,
+    "WishlistCount": 0,
+    "totalPrice": 0,
+    "wishlistBooks": [],
+    "books": [
+      {
+        "id": 0,
+        "title": "Miftah al qirâ’a 1",
+        "level": "1 Bac",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "100",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 1,
+        "title": "mousaeid",
+        "level": "Moyenne",
+        "langue": "en",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/2.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "150",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 1,
+        "maxQuantity": 4
+      },
+      {
+        "id": 11,
+        "title": "je sais pas",
+        "level": "CM2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 12,
+        "title": "Miftah al qirâ’a 1",
+        "level": "Petite",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 13,
+        "title": "mousaeid",
+        "level": "Moyenne",
+        "langue": "en",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 14,
+        "title": "Prepa",
+        "level": "CP",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 15,
+        "title": "Prepa",
+        "level": "CM1",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 3
+      },
+      {
+        "id": 16,
+        "title": "mousaeid",
+        "level": "CE2",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 17,
+        "title": "Plan comptable",
+        "level": "CP",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2
+      },
+      {
+        "id": 18,
+        "title": "Miftah al qirâ’a 1",
+        "level": "Petite",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 19,
+        "title": "mousaeid",
+        "level": "CM1",
+        "langue": "en",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 3
+      },
+      {
+        "id": 20,
+        "title": "Coucou",
+        "level": "CE1",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 21,
+        "title": "couca",
+        "level": "CE2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 22,
+        "title": "couca",
+        "level": "CE1",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 23,
+        "title": "couca",
+        "level": "CE2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 24,
+        "title": "couca",
+        "level": "CP",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 25,
+        "title": "couca",
+        "level": "CM2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 26,
+        "title": "couca",
+        "level": "CM2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 27,
+        "title": "couca",
+        "level": "CP",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 28,
+        "title": "couca",
+        "level": "CE2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      }
+    ],
+
+    "purchasedBooks": []
+  },
+  "ecritures": {
+    "library": "Aladnane",
+    "name": "ecritures",
+    "arrow": "Ecritures & Art",
+    "cartCount": 0,
+    "WishlistCount": 0,
+    "totalPrice": 0,
+    "wishlistBooks": [],
+    "books": [
+      {
+        "id": 9999,
+        "title": "Cahier 1 ecritures",
+        "level": "CP",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "100",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 100,
+        "title": "cahier 9",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/2.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "150",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 1,
+        "maxQuantity": 4
+      },
+      {
+        "id": 99,
+        "title": "Cahier 1 ecritures",
+        "level": "CP",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "100",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 1000,
+        "title": "cahier 9",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/2.png",
+          "/assets/ArrissalaPhotos/0.png"
+        ],
+        "price": "150",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 101,
+        "title": "Prepa",
+        "level": "Moyenne",
+        "imgSrc": ["/assets/ArrissalaPhotos/0.png"],
+        "price": "2395.05",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 1,
+        "maxQuantity": 3
+      },
+      {
+        "id": 102,
+        "title": "lwiynat",
+        "level": "Moyenne",
+        "imgSrc": ["/assets/ArrissalaPhotos/2.png"],
+        "price": "589.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 1,
+        "maxQuantity": 5
+      },
+      {
+        "id": 103,
+        "title": "Plan comptable",
+        "level": "Moyenne",
+        "imgSrc": ["/assets/ArrissalaPhotos/1.png"],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 104,
+        "title": "Antigone",
+        "level": "Moyenne",
+        "imgSrc": ["/assets/ArrissalaPhotos/0.png"],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 105,
+        "title": "Prepa",
+        "level": "Moyenne",
+        "imgSrc": ["/assets/ArrissalaPhotos/2.png"],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 106,
+        "title": "mousaeid",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 3
+      },
+      {
+        "id": 107,
+        "title": "Plan comptable",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 2
+      },
+      {
+        "id": 108,
+        "title": "Miftah al qirâ’a 1",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 6
+      },
+      {
+        "id": 109,
+        "title": "mousaeid",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 8
+      },
+      {
+        "id": 110,
+        "title": "je sais pas",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2,
+        "maxQuantity": 7
+      },
+      {
+        "id": 111,
+        "title": "Miftah al qirâ’a 1",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "maxQuantity": 7
+      },
+      {
+        "id": 112,
+        "title": "mousaeid",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "maxQuantity": 8
+      },
+      {
+        "id": 113,
+        "title": "Prepa",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "maxQuantity": 9
+      },
+      {
+        "id": 114,
+        "title": "Prepa",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 3
+      },
+      {
+        "id": 115,
+        "title": "mousaeid",
+        "level": "Moyenne",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 116,
+        "title": "Plan comptable",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 2
+      },
+      {
+        "id": 117,
+        "title": "Miftah al qirâ’a 1",
+        "level": "Petite",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 118,
+        "title": "mousaeid",
+        "level": "CM1",
+        "langue": "en",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false,
+        "littleBooksCount": 3
+      },
+      {
+        "id": 119,
+        "title": "Coucou",
+        "level": "CE1",
+        "langue": "fr",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 120,
+        "title": "couca",
+        "level": "CE2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 121,
+        "title": "couca",
+        "level": "CE1",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 122,
+        "title": "couca",
+        "level": "CE2",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      },
+      {
+        "id": 123,
+        "title": "couca",
+        "level": "CP",
+        "langue": "ar",
+        "imgSrc": [
+          "/assets/ArrissalaPhotos/1.png",
+          "/assets/ArrissalaPhotos/0.png",
+          "/assets/ArrissalaPhotos/1.png"
+        ],
+        "price": "230.00",
+        "addedToCart": false,
+        "addedToWishlist": false
+      }
+    ],
+    "purchasedBooks": []
+  }
+}
