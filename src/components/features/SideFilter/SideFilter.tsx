@@ -13,15 +13,13 @@ function SideFilter({
   selectedMiddleSchoolLevel,
   selectedHighSchoolLevel,
   isSideBarActive,
-  toggleSidebar,
+  setIsSideBarActive,
   dispatch,
 }) {
   // Use media query hook
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
   useEffect(() => {
     const handleResize = () => {
-      console.log('handling resize ');
-      const screenWidth = window.innerWidth;
       const sideFilter = document.getElementById('sideFilter');
       const language = document.getElementById('language');
       const level = document.getElementById('level');
@@ -75,11 +73,13 @@ function SideFilter({
       id="sideFilter"
       className={`relative ${
         isSideBarActive
-          ? 'z-100 w-full block lg:w-sidebar-expanded'
+          ? 'z-50 w-full block lg:w-sidebar-expanded'
           : 'z--1 w-0 lg:w-sidebar-collapsed'
       }`}
-      onMouseEnter={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: true })}
-      onMouseLeave={() => dispatch({ type: 'TOGGLE_SIDEBAR', payload: false })}
+      {...(!isMobile && {
+        onMouseEnter: () => setIsSideBarActive(true),
+        onMouseLeave: () => setIsSideBarActive(false),
+      })}
     >
       <div className="sidebarArrow" aria-hidden="true">
         <i

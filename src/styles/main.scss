@@ -90,3 +90,20 @@
   background-color: #f9a825; // A bright yellow for visibility
   color: #333; // Dark text for contrast
 }
+.no-scroll {
+  overflow: hidden; /* Disables scrolling */
+}
+
+.shadow-overlay {
+  background-color: rgba(0, 0, 0, 1) !important ; /* semi-transparent black */
+  z-index: 49 !important ; /* below the sidebar's z-index */
+}
+body.no-scroll::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+body.no-scroll {
+  -ms-overflow-style: none; /* for Internet Explorer and Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow: hidden;
+}

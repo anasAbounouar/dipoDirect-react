@@ -30,13 +30,13 @@ const ItemCard = memo(
           <div className="relative pb-4 pt-2">
             <button
               onClick={onWishlistToggle}
-              className="absolute z-50 bg-transparent  p-1 left-0 top-0 text-myHeartColor outline-none hover:border-color-none"
+              className="absolute bg-transparent  p-1 left-0 top-0 text-myHeartColor z-10 outline-none hover:border-color-none"
               aria-label={
                 addedToWishlist ? 'Remove from wishlist' : 'Add to wishlist'
               }
             >
               <i
-                className={`${heartIconClass} fa-heart text-[25px] my-heart hover:text-[28px] duration-200`}
+                className={`${heartIconClass} fa-heart text-[25px] my-heart hover:text-[28px] duration-200 `}
               ></i>
             </button>
           </div>

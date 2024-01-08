@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <div>
       <nav
-        className={`${styles.nav} bg-white sticky top-0 z-10 border-gray-200 dark:bg-gray-900 custom-shadow `}
+        className={`${styles.nav} bg-white sticky top-0  border-gray-200 dark:bg-gray-900 custom-shadow `}
         aria-label="Main Navigation"
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">

@@ -58,8 +58,8 @@ function reducer(state, action) {
         selectedMiddleSchoolLevel: '',
         currentPage: 1,
       };
-    case 'TOGGLE_SIDEBAR':
-      return { ...state, isSideBarActive: action.payload };
+    // case 'TOGGLE_SIDEBAR':
+    //   return { ...state, isSideBarActive: action.payload };
     case 'INCREMENT_CURRENT_PAGE':
       return { ...state, currentPage: action.payload };
     case 'SEARCH_QUERY':
@@ -74,7 +74,7 @@ const initialFilterState = {
   selectedPrimaryLevel: '',
   selectedMiddleSchoolLevel: '',
   selectedHighSchoolLevel: '',
-  isSideBarActive: false,
+  // isSideBarActive: false,
   currentPage: 1,
   searchBooksInput: '',
 };
@@ -100,7 +100,12 @@ const typeOptions = [
 ];
 
 const itemsPerPage = 10; // Number of items to display per page
-export default function Items({ userShoppingSession, setUserShoppingSession }) {
+export default function Items({
+  userShoppingSession,
+  setUserShoppingSession,
+  isSideBarActive,
+  setIsSideBarActive,
+}) {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
 
@@ -108,10 +113,10 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
 
   const [state, dispatch] = useReducer(reducer, initialFilterState);
 
-  const toggleSidebar = () => {
-    //activate and disactivate sidebar
-    dispatch({ type: 'SIDE-BAR', payload: !state.isSideBarActive });
-  };
+  // const toggleSidebar = () => {
+  //   //activate and disactivate sidebar
+  //   dispatch({ type: 'SIDE-BAR', payload: !isSideBarActive });
+  // };
   // possibility to change {type}
 
   const [selectType, setSelectType] = useState<string | undefined>(type); // Set state with type
@@ -249,10 +254,28 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
   // the sidebarFilter is availble only for papeterie , and underconditions
   const showFiter = () => {
     if (type === 'papeterie') {
-      return !isMobile || (isMobile && state.isSideBarActive);
+      return !isMobile || (isMobile && isSideBarActive);
     }
     return false;
   };
+  // after sidebar is opened, scrolling should be disabled
+  useEffect(() => {
+    const rootElement = document.getElementById('root'); // Correctly get the #root element
+    if (!rootElement) return console.log('#root not found ');
+    if (isSideBarActive) {
+      document.body.classList.add('no-scroll');
+      rootElement.classList.add('shadow-overlay'); // Use the rootElement variable
+    } else {
+      document.body.classList.remove('no-scroll');
+      rootElement.classList.remove('shadow-overlay'); // Use the rootElement variable
+    }
+
+    // Clean up function
+    return () => {
+      document.body.classList.remove('no-scroll');
+      rootElement.classList.remove('shadow-overlay'); // Use the rootElement variable
+    };
+  }, [isSideBarActive]); // Only re-run the effect if isSideBarActive changes
 
   const addedToWishlist = item => {
     const bookIndex = userShoppingSession[chosenLibrary][
@@ -275,7 +298,7 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
     return false;
   };
   return (
-    <section id="intern" className="relative pb-4 bg-myContent">
+    <section id="intern" className={`relative pb-4 bg-myContent `}>
       {showFiter() && (
         <SideFilter
           babyLevels={babyLevels}
@@ -287,18 +310,19 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
           selectedPrimaryLevel={state.selectedPrimaryLevel}
           selectedMiddleSchoolLevel={state.selectedMiddleSchoolLevel}
           selectedHighSchoolLevel={state.selectedHighSchoolLevel}
-          isSideBarActive={state.isSideBarActive}
-          toggleSidebar={toggleSidebar}
+          isSideBarActive={isSideBarActive}
+          setIsSideBarActive={setIsSideBarActive}
           dispatch={dispatch}
         />
       )}
 
       <div
         id="libraryContent"
-        className={` transition-all duration-700 ease-in-out ${
+        className={` transition-all duration-700 ease-in-out
+        } ${
           !showFiter()
             ? 'm-0'
-            : state.isSideBarActive
+            : isSideBarActive
               ? ' lg:ml-sidebar-expanded '
               : 'lg:ml-sidebar-collapsed'
         }`}
@@ -349,7 +373,7 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
             <strong className="mx-1">{finalFilter().length}</strong> resultats
           </p>
 
-          {displayedItems.length > 0 && (
+          {displayedItems.length >= itemsPerPage && (
             <div className="flex justify-end m-4">
               <button
                 onClick={prevPage}
@@ -420,7 +444,7 @@ export default function Items({ userShoppingSession, setUserShoppingSession }) {
           )}
         </section>
 
-        {displayedItems.length > 0 && (
+        {displayedItems.length >= itemsPerPage && (
           <div className="flex justify-end m-4">
             <button
               onClick={prevPage}

@@ -20,7 +20,7 @@ import Items from './pages/Items/Items';
 import NotFound from './pages/NotFound/NotFound';
 import LoginPage from './pages/Accounts/Login/Login';
 import About from './pages/About/About';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MobileNavigationBar from './components/layout/MobileNavigationBar/MobileNavigationBar';
 import { useMediaQuery } from 'react-responsive';
 
@@ -125,6 +125,9 @@ function App() {
     0
   );
   const [user, setUser] = useState(null);
+  //sidebar configurations
+  const [isSideBarActive, setIsSideBarActive] = useState(false);
+
   return (
     <Router>
       <Navbar />
@@ -139,6 +142,8 @@ function App() {
             <Items
               userShoppingSession={userShoppingSession}
               setUserShoppingSession={setUserShoppingSession}
+              isSideBarActive={isSideBarActive}
+              setIsSideBarActive={setIsSideBarActive}
             />
           }
         />
@@ -151,6 +156,8 @@ function App() {
           userShoppingSession={userShoppingSession}
           wishlistTotalCount={wishlistTotalCount}
           cartTotalCount={cartTotalCount}
+          isSideBarActive={isSideBarActive}
+          setIsSideBarActive={setIsSideBarActive}
         />
       )}
       <Footer />
