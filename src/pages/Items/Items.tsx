@@ -105,6 +105,7 @@ export default function Items({
   setUserShoppingSession,
   isSideBarActive,
   setIsSideBarActive,
+  myLocalHost = 'localhost',
 }) {
   const isMobile = useIsMobile();
   const navigate = useNavigate();
@@ -150,7 +151,7 @@ export default function Items({
   useEffect(() => {
     setIsloading(true);
     // Step 2: Fetch the data
-    fetch(` http://192.168.39.227:${port}/${type}`)
+    fetch(`http://${myLocalHost}:${port}/${type}`)
       .then(response => response.json())
       .then(data => {
         // Step 3: Set the state

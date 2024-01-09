@@ -9,7 +9,11 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import LoadingIndicator from '../../components/common/LoadingIndicator/LoadingIndicator';
 import { addToCart, addToWishlist } from '../../data/CartManager.ts';
 import { library } from '@fortawesome/fontawesome-svg-core';
-export default function Item({ userShoppingSession, setUserShoppingSession }) {
+export default function Item({
+  userShoppingSession,
+  setUserShoppingSession,
+  myLocalHost = 'localhost',
+}) {
   const { type, chosenLibrary, bookId } = useParams();
   const [item, setItem] = useState({});
   const [isLoading, setIsloading] = useState(false);
@@ -25,7 +29,7 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
   useEffect(() => {
     setIsloading(true);
     // Step 2: Fetch the data
-    fetch(`http://192.168.39.227:${port}/${type}`)
+    fetch(`http://${myLocalHost}:${port}/${type}`)
       .then(response => response.json())
       .then(data => {
         const item = data.books.find(item => {
@@ -410,14 +414,38 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
                     </button>
                     <input
                       type="number"
-                      className=" w-[55px] text-center  mx-3border-b-2 outline-none"
+                      className="w-[55px] text-center mx-3 border-b-2 outline-none"
                       value={quantity}
-                      onChange={e => handleQuantityChange(e.target.value)}
+                      onChange={e => {
+                        const newQuantity = parseInt(e.target.value, 10); // Parse the input value to an integer
+
+                        if (!isNaN(newQuantity)) {
+                          // Check if the parsed value is a number
+                          if (newQuantity > item.maxQuantity) {
+                            // If entered quantity is more than max, set it to max
+                            handleQuantityChange(item.maxQuantity);
+                          } else if (newQuantity < 0) {
+                            // If entered quantity is less than 0, set it to 0
+                            handleQuantityChange(0);
+                          } else {
+                            // Otherwise, set it to the entered value
+                            handleQuantityChange(newQuantity);
+                          }
+                        } else {
+                          // If entered value is not a number, set quantity to 0
+                          handleQuantityChange(0);
+                        }
+                      }}
                       min={0}
                     />
+
                     <button
                       className="text-lg px-3 ml-3 py-1 border rounded bg-white border-black flex items-center justify-center"
-                      onClick={() => handleQuantityChange(quantity + 1)}
+                      onClick={() => {
+                        if (quantity < item.maxQuantity) {
+                          handleQuantityChange(quantity + 1);
+                        }
+                      }}
                     >
                       <i className="fa-solid fa-plus"></i>
                     </button>

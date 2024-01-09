@@ -129,6 +129,9 @@ function App() {
   //sidebar configurations
   const [isSideBarActive, setIsSideBarActive] = useState(false);
 
+  //localhost or port
+  const myLocalHost = 'localhost';
+
   return (
     <Router>
       <Navbar />
@@ -145,6 +148,7 @@ function App() {
               setUserShoppingSession={setUserShoppingSession}
               isSideBarActive={isSideBarActive}
               setIsSideBarActive={setIsSideBarActive}
+              myLocalHost={myLocalHost}
             />
           }
         />
@@ -154,6 +158,7 @@ function App() {
             <Item
               userShoppingSession={userShoppingSession}
               setUserShoppingSession={setUserShoppingSession}
+              myLocalHost={myLocalHost}
             />
           }
         />
