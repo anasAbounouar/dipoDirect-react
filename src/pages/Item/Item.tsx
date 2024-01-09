@@ -6,11 +6,13 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import LoadingIndicator from '../../components/common/LoadingIndicator/LoadingIndicator';
+import { addToCart, addToWishlist } from '../../data/CartManager.ts';
+import { library } from '@fortawesome/fontawesome-svg-core';
 export default function Item({ userShoppingSession, setUserShoppingSession }) {
   const { type, chosenLibrary, bookId } = useParams();
   const [item, setItem] = useState({});
   const [isLoading, setIsloading] = useState(false);
-  console.log('type,chosenlibrary,id', chosenLibrary, bookId, type);
   const port =
     chosenLibrary === 'arrissala'
       ? 3000
@@ -40,11 +42,75 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
       });
   }, [type, port, bookId]); // The empty array ensures this effect runs once when the component mounts
 
-  const [quantity, setQuantity] = useState(0);
+  const initialQuantity = () => {
+    const existingBookIndex = userShoppingSession[chosenLibrary][
+      type
+    ].purchasedBooks.findIndex(el => el.book.id === +bookId);
+    if (existingBookIndex === -1) {
+      return 0;
+    } else {
+      return userShoppingSession[chosenLibrary][type].purchasedBooks[
+        existingBookIndex
+      ].quantity;
+    }
+  };
+  const [quantity, setQuantity] = useState(initialQuantity());
+
+  const handleQuantityChange = newQuantity => {
+    setQuantity(newQuantity);
+    // Call addToCart with the new quantity
+    addToCart(
+      userShoppingSession,
+      setUserShoppingSession,
+      chosenLibrary,
+      type,
+      item,
+      newQuantity,
+      false
+    );
+  };
+
+  const tdStyles = {
+    borderBottom: '1px solid #ccc',
+  };
+  // Define your details data as an array of objects
+  const details = [
+    { label: 'Categorie', value: 'Livres' },
+    { label: 'Niveau', value: 'CP' },
+    { label: 'Année', value: '2022' },
+    { label: 'Language', value: 'Arabe' },
+    {
+      label: 'Description',
+      value: "Manuel+Cahier d'exercices (vous devez prendre les 2 a la fois)",
+    },
+  ];
+  const addedToWishlist = () => {
+    const bookIndex = userShoppingSession[chosenLibrary][
+      type
+    ].wishlistBooks.findIndex(book => book.id === item.id);
+    if (bookIndex !== -1) {
+      return true;
+    }
+    return false;
+  };
+  const addedToCart = () => {
+    const bookIndex = userShoppingSession[chosenLibrary][
+      type
+    ].purchasedBooks.findIndex(purchasedItem => {
+      return purchasedItem.book.id === item.id;
+    });
+    if (bookIndex !== -1) {
+      return true;
+    }
+    return false;
+  };
   return (
     <section className="bg-myContent">
       {isLoading ? (
-        <h3>Loading</h3>
+        <div role="alert" aria-busy="true">
+          <LoadingIndicator /> {/* Use a loading spinner component */}
+          <span className="sr-only">Loading...</span>
+        </div>
       ) : (
         <>
           <div className="bookPath flex items-start ms-8 justify-start p-3">
@@ -86,23 +152,50 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
                 <div className="lg:w-1/2 relative">
                   {/* Heart icon for adding to wishlist */}
                   <div className="relative pb-4 pt-2">
-                    <button
-                      //   onClick={onWishlistToggle}
+                    {/* <button
+                      onClick={onWishlistToggle}
                       className="absolute bg-transparent  p-1 left-0 top-0 text-myHeartColor z-10 outline-none hover:border-color-none"
-                      //   aria-label={
-                      //     addedToWishlist
-                      //       ? 'Remove from wishlist'
-                      //       : 'Add to wishlist'
-                      //   }
+                      aria-label={
+                        addedToWishlist
+                          ? 'Remove from wishlist'
+                          : 'Add to wishlist'
+                      }
                     >
                       <i
-                        className={`fa-regular
-                        } fa-heart text-[25px] my-heart hover:text-[28px] duration-200 `}
+                        className={`${heartIconClass} fa-heart text-[25px] my-heart hover:text-[28px] duration-200 `}
+                      ></i>
+                    </button> */}
+                    <button
+                      onClick={() =>
+                        addToWishlist(
+                          userShoppingSession,
+                          setUserShoppingSession,
+                          chosenLibrary,
+                          type,
+                          item
+                        )
+                      }
+                      className="absolute bg-transparent  p-1 left-0 top-0 text-myHeartColor z-10 outline-none hover:border-color-none"
+                      aria-label={
+                        addedToWishlist()
+                          ? 'Remove from wishlist'
+                          : 'Add to wishlist'
+                      }
+                    >
+                      <i
+                        className={`fa-regular ${
+                          addedToWishlist() ? 'fa-solid' : ''
+                        }
+                         fa-heart text-[25px] my-heart hover:text-[28px] duration-200 `}
                       ></i>
                     </button>
                   </div>
                   {item && item.imgSrc && (
-                    <div className="carousel-container">
+                    <div
+                      className="carousel-container"
+                      aria-roledescription="carousel"
+                      aria-label="Book images"
+                    >
                       <Swiper
                         effect={'coverflow'}
                         grabCursor={true}
@@ -307,7 +400,11 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
                       className={`text-lg px-3 mx-3 py-1 border rounded border-black ${
                         quantity > 0 ? 'bg-white' : 'bg-gray-200 border-none'
                       }`}
-                      onClick={() => setQuantity(q => (q > 0 ? q - 1 : q))}
+                      onClick={() =>
+                        handleQuantityChange(
+                          quantity > 0 ? quantity - 1 : quantity
+                        )
+                      }
                     >
                       <i className="fa-solid fa-minus"></i>
                     </button>
@@ -315,24 +412,24 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
                       type="number"
                       className=" w-[55px] text-center  mx-3border-b-2 outline-none"
                       value={quantity}
-                      onChange={e => setQuantity(e.target.value)}
+                      onChange={e => handleQuantityChange(e.target.value)}
                       min={0}
                     />
                     <button
                       className="text-lg px-3 ml-3 py-1 border rounded bg-white border-black flex items-center justify-center"
-                      onClick={() => setQuantity(q => q + 1)}
+                      onClick={() => handleQuantityChange(quantity + 1)}
                     >
                       <i className="fa-solid fa-plus"></i>
                     </button>
                   </div>
                 </div>
-                <p className="mb-4  p-3 flex items-center justify-center ">
+                <div className="mb-4  p-3 flex items-center justify-center ">
                   <div className="w-6/12 border rounded-sm py-3  text-[#777]">
                     {' '}
                     Quantité max :{' '}
                     <span className="font-semibold"> {item.maxQuantity}</span>
                   </div>
-                </p>
+                </div>
 
                 {/* Additional Info */}
                 <div className="space-y-5 border p-3 rounded-sm">
@@ -357,6 +454,35 @@ export default function Item({ userShoppingSession, setUserShoppingSession }) {
                 </div>
               </div>
             </div>
+            <div className="flex gap-4 mt-3 justify-center lg:justify-start lg:ml-12 lg:pl-11">
+              <h2
+                className="details-li font-bold text-2xl text-myBrand border-b-myBrand border-b-2"
+                role="region"
+                aria-labelledby="detailsHeading"
+              >
+                Details
+              </h2>
+            </div>
+            <table
+              className="w-11/12 m-auto my-4"
+              id="detailsTable"
+              aria-describedby="detailsDescription"
+            >
+              <tbody>
+                {details.map((detail, index) => (
+                  <tr key={index}>
+                    <th
+                      scope="row"
+                      className={` text-gray-500 font-normal`}
+                      style={tdStyles}
+                    >
+                      {detail.label}
+                    </th>
+                    <td style={tdStyles}>{detail.value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </>
       )}

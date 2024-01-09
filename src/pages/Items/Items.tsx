@@ -297,6 +297,9 @@ export default function Items({
     }
     return false;
   };
+  const goToItem = itemId => {
+    navigate(`${itemId}`);
+  };
   return (
     <section id="intern" className={`relative pb-4 bg-myContent `}>
       {showFiter() && (
@@ -412,6 +415,7 @@ export default function Items({
             <div className="mt-4 myGrid">
               {displayedItems.map(item => (
                 <ItemCard
+                  onClick={() => goToItem(item.id)}
                   key={item.id}
                   item={item}
                   heartIconClass={
@@ -434,7 +438,9 @@ export default function Items({
                       setUserShoppingSession,
                       chosenLibrary,
                       type,
-                      item
+                      item,
+                      1,
+                      true
                     );
                     // Your logic to handle add to cart
                   }}

@@ -19,6 +19,7 @@ const ItemCard = memo(
     onAddToCart,
     addedToCart,
     addedToWishlist,
+    onClick,
   }) => {
     return (
       <div
@@ -64,7 +65,7 @@ const ItemCard = memo(
               className="mySwiper"
             >
               {item.imgSrc.map((src, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide key={index} onClick={onClick}>
                   <img
                     src={src}
                     alt={`${item.title} image - Slide ${index + 1}`}
@@ -87,7 +88,10 @@ const ItemCard = memo(
 
           <div className="down-actions my-3 flex flex-col items-center justify-center">
             {/* Description Panel */}
-            <div className="flex items-center flex-col descriptionPanier">
+            <div
+              className="flex items-center flex-col descriptionPanier"
+              onClick={onClick}
+            >
               <div className="level text-[#333]">{item.level}</div>
               <div className="title text-black font-[600]">{item.title}</div>
               <div className="nowprice text-blue-600 font-bold bg-white">
