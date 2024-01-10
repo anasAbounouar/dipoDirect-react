@@ -18,7 +18,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "100",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -33,7 +33,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "150",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 1,
         "maxQuantity": 4
@@ -49,7 +49,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -65,7 +65,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -81,7 +81,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -97,7 +97,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -111,7 +111,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 3
       },
@@ -126,7 +126,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -140,7 +140,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2
       },
@@ -155,7 +155,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -169,7 +169,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 3
       },
@@ -184,7 +184,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -198,7 +198,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -212,7 +212,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -226,7 +226,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -240,7 +240,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -254,7 +254,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -268,7 +268,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -281,7 +281,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -294,7 +294,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       }
     ],
@@ -319,7 +319,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "100",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -333,7 +333,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "150",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 1,
         "maxQuantity": 4
@@ -347,7 +347,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "100",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -361,7 +361,7 @@
           "/assets/ArrissalaPhotos/0.png"
         ],
         "price": "150",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -372,7 +372,7 @@
         "level": "Moyenne",
         "imgSrc": ["/assets/ArrissalaPhotos/0.png"],
         "price": "2395.05",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 1,
         "maxQuantity": 3
@@ -383,7 +383,7 @@
         "level": "Moyenne",
         "imgSrc": ["/assets/ArrissalaPhotos/2.png"],
         "price": "589.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 1,
         "maxQuantity": 5
@@ -394,7 +394,7 @@
         "level": "Moyenne",
         "imgSrc": ["/assets/ArrissalaPhotos/1.png"],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -405,7 +405,7 @@
         "level": "Moyenne",
         "imgSrc": ["/assets/ArrissalaPhotos/0.png"],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -416,7 +416,7 @@
         "level": "Moyenne",
         "imgSrc": ["/assets/ArrissalaPhotos/2.png"],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -431,7 +431,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 3
@@ -446,7 +446,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 2
@@ -461,7 +461,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 6
@@ -475,7 +475,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 8
@@ -490,7 +490,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2,
         "maxQuantity": 7
@@ -505,7 +505,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "maxQuantity": 7
       },
@@ -519,7 +519,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "maxQuantity": 8
       },
@@ -533,7 +533,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "maxQuantity": 9
       },
@@ -547,7 +547,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 3
       },
@@ -561,7 +561,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -573,7 +573,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 2
       },
@@ -588,7 +588,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -602,7 +602,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false,
         "littleBooksCount": 3
       },
@@ -617,7 +617,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -631,7 +631,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -645,7 +645,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -659,7 +659,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       },
       {
@@ -673,7 +673,7 @@
           "/assets/ArrissalaPhotos/1.png"
         ],
         "price": "230.00",
-        "addedToCart": false,
+
         "addedToWishlist": false
       }
     ],

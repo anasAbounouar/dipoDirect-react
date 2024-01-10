@@ -24,6 +24,7 @@ import { useEffect, useState } from 'react';
 import MobileNavigationBar from './components/layout/MobileNavigationBar/MobileNavigationBar';
 import { useMediaQuery } from 'react-responsive';
 import Item from './pages/Item/Item';
+import Cart from './pages/Cart/Cart';
 
 type Book = {
   id: number;
@@ -159,6 +160,15 @@ function App() {
               userShoppingSession={userShoppingSession}
               setUserShoppingSession={setUserShoppingSession}
               myLocalHost={myLocalHost}
+            />
+          }
+        />
+        <Route
+          path="cart"
+          element={
+            <Cart
+              userShoppingSession={userShoppingSession}
+              setUserShoppingSession={setUserShoppingSession}
             />
           }
         />

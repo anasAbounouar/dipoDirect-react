@@ -29,6 +29,7 @@ export default {
         myTealBlue: '#009688',
         myContent: '#EEEE',
         myLogin: '#D18742',
+        myDanger: '#DC6803',
       },
       margin: {
         'sidebar-expanded': '300px',
