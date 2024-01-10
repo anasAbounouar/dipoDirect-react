@@ -9,7 +9,10 @@ const contactDetails = {
 
 const ContactUs = () => {
   return (
-    <div className="bg-myBrand flex-1 flex items-center justify-center flex-col md:flex-row py-7 lg:gap-20">
+    <div
+      id="contact"
+      className="bg-myBrand flex-1 flex items-center justify-center flex-col md:flex-row py-7 lg:gap-20"
+    >
       <img
         className="w-[342.656px]"
         src="/assets/contactus.png"

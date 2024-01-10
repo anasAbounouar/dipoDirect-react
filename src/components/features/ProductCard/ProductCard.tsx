@@ -61,7 +61,7 @@ export default function ProductCard({
 
   return (
     <div
-      className={`lg:w-1/2 flex-col lg:flex-row flex items-center justify-between py-2 my-2 border-b-2 border-black `}
+      className={`card-shadow custom-shadow w-full lg:w-5/12 flex-col lg:flex-row flex items-center justify-between p-2 my-2  `}
     >
       {/* Left Column with image and likes */}
       <div className="lg:w-1/2 relative">
@@ -228,9 +228,9 @@ export default function ProductCard({
             <i className="fa-solid fa-plus"></i>
           </button>
         </div>
-        <div className="font-bold text-xl mt-3 w-full capitalize">
-          sous-total:{' '}
-          <strong className="text-myHeartColor">
+        <div className="font-bold text-xl mt-3 w-full capitalize flex">
+          sous-total : {' '}
+          <strong className="text-myHeartColor ml-1">
             {quantity * item.book.price} DH
           </strong>
         </div>

@@ -17,7 +17,7 @@ export default function LibraryIntro() {
     });
     if (libraryData) {
       setLibraryData(libraryData);
-      console.log('library data is', libraryData);
+     
     } else {
       navigate('/not-found');
     }

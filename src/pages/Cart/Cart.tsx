@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 import { useState } from 'react';
 import ProductCard from '../../components/features/ProductCard/ProductCard';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart({ userShoppingSession, setUserShoppingSession }) {
   const findFirstPurchasedSupplier = () => {
@@ -20,6 +21,7 @@ export default function Cart({ userShoppingSession, setUserShoppingSession }) {
     }
     return null;
   };
+  const Navigate = useNavigate();
 
   const PurchasedBooksInCategory = (supplier, category) => {
     if (supplier && category && userShoppingSession[supplier][category]) {
@@ -58,6 +60,16 @@ export default function Cart({ userShoppingSession, setUserShoppingSession }) {
     },
     { name: 'organisation', items: organisationItems, displayed: true },
   ]);
+  const calculatePrice = array => {
+    return array.reduce((total, item) => {
+      const price = parseFloat(item.book.price);
+      const quantity = item.quantity;
+      return total + price * quantity;
+    }, 0);
+  };
+  const totalPrice = types
+    .map(type => calculatePrice(type.items))
+    .reduce((total, item) => total + item, 0);
   const toggleDisplay = typeName => {
     setTypes(
       types.map(type =>
@@ -188,7 +200,13 @@ export default function Cart({ userShoppingSession, setUserShoppingSession }) {
         </div>
         <div>
           Vous n'êtes pas prêt à passer à la caisse ?{' '}
-          <strong className="underline">Poursuivez vos achats</strong>.
+          <button
+            className="underline bg-transparent"
+            onClick={() => Navigate(-1)}
+          >
+            Poursuivez vos achats
+          </button>
+          .
         </div>
       </div>
 
@@ -215,7 +233,7 @@ export default function Cart({ userShoppingSession, setUserShoppingSession }) {
                 {type.displayed && (
                   <>
                     {' '}
-                    <div className="flex items-center flex-wrap">
+                    <div className="flex items-center flex-wrap gap-1 justify-around">
                       {type.items.map(item => (
                         <ProductCard
                           key={item.book.id}
@@ -234,14 +252,55 @@ export default function Cart({ userShoppingSession, setUserShoppingSession }) {
             )
         )}
       </div>
-      <div className="flex items-center justify-around my-3">
-        <div>
-          <button className="border-1 border-black">
-            Poursuivre votre Achat{' '}
-          </button>
+      <div className="flex flex-col lg:flex-row">
+        {' '}
+        <div className="w-11/12 lg:w-1/2 flex items-center justify-around m-3 gap-2">
+          <div>
+            <button
+              className="border-1 border-black text-black bg-transparent"
+              onClick={() => Navigate(-1)}
+            >
+              {' '}
+              <i
+                aria-hidden="true"
+                className="fa-solid fa-arrow-left mr-2  "
+                onClick={() => Navigate(-1)}
+              ></i>
+              Poursuivre l'achat{' '}
+            </button>
+          </div>
+          <div>
+            <button className="bg-myDanger text-white">
+              Vider le panier{' '}
+              <i
+                aria-hidden="true"
+                className="fa-solid fa-trash text-white"
+              ></i>
+            </button>
+          </div>
         </div>
-        <div>
-          <button className="bg-myDanger text-white">Vider le panier </button>
+        <div className="w-11/12 lg:w-1/2  flex flex-col mx-5 my-11">
+          <div className="w-full">
+            <h2 className="font-bold text-xl">Total Panier</h2>
+            {types.map(type => (
+              <div className="p-3 flex flex-row justify-between">
+                <p className="capitalize">{type.name}</p>{' '}
+                <span className="font-bold">
+                  {calculatePrice(type.items)} DH
+                </span>
+              </div>
+            ))}
+            <div className="p-3 flex flex-row justify-between">
+              <p className="capitalize font-bold text-xl">total </p>{' '}
+              <span className="font-bold">{totalPrice} DH</span>
+            </div>
+            <MyButton
+              text="Continue"
+              ariaLabel="continue to payement"
+              onClick={() => console.log('continuing')}
+              className="w-full my-3 bg-myBrand text-white rounded-full"
+            />
+          </div>
         </div>
       </div>
     </div>

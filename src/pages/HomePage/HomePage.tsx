@@ -26,8 +26,7 @@ export default function HomePage() {
 
   // Function to handle the selection change
   const handleSelectChange = (value: string) => {
-    console.log('trying to handle select change ');
-    console.log(selectedOption);
+    
 
     navigate(`/library-intro/${value}`);
   };

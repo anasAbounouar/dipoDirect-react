@@ -98,7 +98,7 @@ export default function Navbar() {
               <li>
                 <NavLink
                   onClick={() => setIsClicked(true)}
-                  to="/contact"
+                  to="/#contact"
                   className={({ isActive }) =>
                     isActive
                       ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '

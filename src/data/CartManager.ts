@@ -66,7 +66,7 @@ export function addToCart(
     // Classic toggle functionality
     if (existingBookIndex !== -1) {
       // Remove the item if it's already in the cart
-      console.log(existingBookIndex);
+      
       sessionCopy[libraryName][type].purchasedBooks.splice(
         existingBookIndex,
         1
@@ -107,11 +107,11 @@ export function addToWishlist(
   if (bookIndex === -1) {
     // If the book isn't in the wishlist, add it and increase the count
     selectedCategory.wishlistBooks.push(book);
-    console.log('Book added to wishlist.');
+   
   } else {
     // If the book is already in the wishlist, remove it and decrease the count
     selectedCategory.wishlistBooks.splice(bookIndex, 1);
-    console.log('Book removed from wishlist.');
+   
   }
 
   // Update the state with the new session data using the updater function

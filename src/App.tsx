@@ -131,7 +131,7 @@ function App() {
   const [isSideBarActive, setIsSideBarActive] = useState(false);
 
   //localhost or port
-  const myLocalHost = 'localhost';
+  const myLocalHost = '192.168.1.10';
 
   return (
     <Router>
