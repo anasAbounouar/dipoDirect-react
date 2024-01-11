@@ -1,3 +1,7 @@
 export default function Notfound() {
-  return <div>page Not found or in maintainance </div>;
+  return (
+    <section className="h-screen">
+      <h1>page Not found or in maintainance </h1>
+    </section>
+  );
 }

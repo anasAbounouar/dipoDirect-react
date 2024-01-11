@@ -46,27 +46,27 @@ const LoginPage = ({ setUser }) => {
       <img
         src="/assets/login/leftDown.png"
         alt="Decorative"
-        className="absolute left-0 bottom-0 max-h-50"
+        className="hidden lg:block absolute left-0 bottom-0 max-h-50"
       />
       <img
         src="/assets/login/leftUp.png"
         alt="Decorative"
-        className="absolute left-0 top-0 max-h-50"
+        className="hidden lg:block absolute left-0 top-0 max-h-50"
       />
       <img
         src="/assets/login/rightUp.png"
         alt="Decorative"
-        className="absolute right-0 top-0 max-h-50"
+        className="hidden lg:block absolute right-0 top-0 max-h-50"
       />
       <img
         src="/assets/login/rightDown.png"
         alt="Decorative"
-        className="absolute right-0 bottom-0 max-h-50"
+        className="hidden lg:block absolute right-0 bottom-0 max-h-50"
       />
 
       <div className="container mx-auto z-50">
         <div className="flex p-4 items-center justify-center">
-          <div className="w-10/12 lg:w-5/12 bg-white p-5 rounded shadow  ">
+          <div className="w-full lg:w-5/12 bg-white p-5 rounded shadow  ">
             <div className="flex items-center justify-center logo my-10">
               <Link to="/">
                 <img

@@ -11,21 +11,21 @@ export default function AvisSection() {
   const Avis = [
     {
       id: 1,
-      name: 'John Doe',
-      date: '2023-12-23',
-      text: 'This is a sample review text.',
+      name: 'Anas Abounouar',
+      date: '2024-01-11',
+      text: 'I like the service ! .',
     },
     {
       id: 2,
-      name: 'anas Doe',
-      date: '2023-12-23',
-      text: 'Thiss is another text .',
+      name: 'Zakaria Fajir',
+      date: '2023-14-23',
+      text: "I don't need to travel anymore.",
     },
     {
       id: 3,
       name: 'adnane Bae',
       date: '2023-12-23',
-      text: 'that was a test .',
+      text: 'that was a special service .',
     },
     // Add more reviews as needed
   ];

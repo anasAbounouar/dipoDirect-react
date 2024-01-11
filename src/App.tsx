@@ -139,7 +139,7 @@ function App() {
 
       <Routes>
         <Route index path="/" element={<HomePage />} />
-        <Route index path="/about" element={<About />} />
+        {/* <Route index path="/about" element={<About />} /> */}
         <Route path="library-intro/:chosenLibrary" element={<LibraryIntro />} />
         <Route
           path="library-intro/:chosenLibrary/:type"

@@ -85,20 +85,20 @@ export default function Navbar() {
               <li>
                 <NavLink
                   onClick={() => setIsClicked(true)}
-                  to="/about"
+                  to="/login"
                   className={({ isActive }) =>
                     isActive
                       ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '
                       : 'block py-2 px-3 rounded md:bg-transparent  md:p-0'
                   }
                 >
-                  À propos
+                  S'identifier
                 </NavLink>
               </li>
               <li>
                 <NavLink
                   onClick={() => setIsClicked(true)}
-                  to="/#contact"
+                  to="/contact"
                   className={({ isActive }) =>
                     isActive
                       ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '
@@ -111,14 +111,14 @@ export default function Navbar() {
               <li>
                 <NavLink
                   onClick={() => setIsClicked(true)}
-                  to="/login"
+                  to="/about"
                   className={({ isActive }) =>
                     isActive
                       ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '
                       : 'block py-2 px-3 rounded md:bg-transparent  md:p-0'
                   }
                 >
-                  S'identifier
+                  À propos
                 </NavLink>
               </li>
               <li>
