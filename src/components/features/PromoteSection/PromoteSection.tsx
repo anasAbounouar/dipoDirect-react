@@ -41,7 +41,7 @@ const PromoteSection = () => {
 
                 {/* Step description container */}
                 <div
-                  className={`flex w-2/3 items-center justify-start flex-col`}
+                  className={`flex w-2/3 items-center justify-start flex-col ml-3`}
                 >
                   {/* Step title with left alignment and brand color */}
                   <span className="text-left w-full text-myBrand font-bold text-xl pb-2">
@@ -65,19 +65,19 @@ const PromoteSection = () => {
           {/* Icon with appropriate aria-label for accessibility */}
           <i
             className={`fas fa-handshake text-myNavyBlue text-[30px] mx-2`}
-            aria-label="Simple"
+            aria-hidden="true"
           ></i>
           <strong>rapide</strong>
           {/* Icon with appropriate aria-label for accessibility */}
           <i
             className={`fas fa-tachometer-alt text-myNavyBlue text-[30px] mx-2`}
-            aria-label="rapide"
+            aria-hidden="true"
           ></i>
           et sans frais supplementaires
           {/* Icon with appropriate aria-label for accessibility */}
           <i
             className={`fas fa-smile-beam text-myNavyBlue text-[30px] mx-2`}
-            aria-label="sans frais supplementaires"
+            aria-hidden="true"
           ></i>
         </p>
       </div>

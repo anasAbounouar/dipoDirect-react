@@ -1,3 +1,5 @@
+import { NavLink } from 'react-router-dom';
+
 export default function Footer() {
   return (
     <footer className="bg-myDarkColor text-white p-5 md:p-10">
@@ -8,7 +10,7 @@ export default function Footer() {
           <img
             className="mt-3"
             src="/assets/footer/footer_cc.png"
-            alt="Accepted credit cards (visa & mastercard)"
+            alt="Accepted credit cards are  visa & mastercard "
           />
         </div>
 
@@ -19,14 +21,14 @@ export default function Footer() {
             <a href="/path-to-appstore" aria-label="Download on the App Store">
               <img
                 src={'/assets/footer/appstore-en.png'}
-                alt="App Store"
+                alt="telecharger de App Store"
                 className="p-1 m-1 max-w-[150px]"
               />
             </a>
             <a href="/path-to-playstore" aria-label="Get it on Google Play">
               <img
                 src={'/assets/footer/playstore-en.png'}
-                alt="Play Store"
+                alt="telecharger de Play Store"
                 className="p-1 m-1 max-w-[150px]"
               />
             </a>
@@ -66,41 +68,41 @@ export default function Footer() {
       <nav className="sm:px-[100px] flex flex-col md:flex-row justify-between items-center w-full mt-6 sm:mt-0">
         {/* Logo */}
         <div className="w-full md:w-1/3 flex sm:justify-center justify-start mb-6 sm:mb-0">
-          <a href="/" className="w-auto sm:w-full text-center md:text-left">
+          <NavLink to="/" className="w-auto sm:w-full text-center md:text-left">
             <img
               src={'/assets/logo.png'}
               alt="DipoDirect logo"
               className="img-fluid w-32 mx-auto rounded-xl"
             />
-          </a>
+          </NavLink>
         </div>
 
         {/* Legal links */}
         <div className="flex md:w-2/3 flex-col md:flex-row items-center md:justify-end w-full text-xs md:text-sm">
-          <a
-            href="/privacy-policy"
+          <NavLink
+            to="/privacy-policy"
             className="w-full flex px-1 py-3 sm:justify-center hover:underline p-2 text-myNonImportantText"
           >
-            Privacy Policy
-          </a>
-          <a
-            href="/terms-conditions"
+            Politique de Confidentialité
+          </NavLink>
+          <NavLink
+            to="/terms-conditions"
             className="w-full flex px-1 py-3 sm:justify-center hover:underline p-2 text-myNonImportantText"
           >
             Terms & Conditions
-          </a>
-          <a
-            href="/cookie-policy"
+          </NavLink>
+          <NavLink
+            to="/cookie-policy"
             className="w-full flex px-1 py-3 sm:justify-center hover:underline p-2 text-myNonImportantText"
           >
-            Cookie Policy
-          </a>
-          <a
-            href="/contact"
+            Politique de Cookies
+          </NavLink>
+          <NavLink
+            to="/contact"
             className="w-full flex px-1 py-3 sm:justify-center hover:underline p-2 text-myNonImportantText"
           >
             Contact
-          </a>
+          </NavLink>
         </div>
       </nav>
     </footer>

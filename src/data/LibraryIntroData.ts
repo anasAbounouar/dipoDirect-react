@@ -28,7 +28,7 @@ export const libraryDatas: ResourceCollection[] = [
           ' Classeurs, Chemises, Porte-documents, Pochettes, Trombones, Agrafeuses, etc..',
         btn: 'Oranisation',
         imgSrc: '..//assets/library-home/organisation-image.svg',
-        pageSrc: '/organisation',
+        pageSrc: 'organisation',
       },
     ],
   },

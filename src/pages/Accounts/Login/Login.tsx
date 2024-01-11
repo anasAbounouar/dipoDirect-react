@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AccountsData, toggleLogin } from '../../../data/Users.ts';
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from '@react-oauth/google';
 import styles from './Login.module.scss';
 import axios from 'axios';
 const ways = [
@@ -32,7 +32,7 @@ const LoginPage = ({ user, setUser }) => {
   const loginSuccess = async (resp) => {
     try {
       const { data } = await axios.post(
-        "https://dipo-direct-api.onrender.com/api/users/signin",
+        'https://dipo-direct-api.onrender.com/api/users/signin',
         {
           idToken: resp.credential,
           clientId: resp.clientId,
@@ -45,7 +45,6 @@ const LoginPage = ({ user, setUser }) => {
   };
 
   const loginUser = async () => {
-
     try {
       const { data } = await axios.post(
         "https://dipo-direct-api.onrender.com/api/users/signin",
@@ -58,7 +57,6 @@ const LoginPage = ({ user, setUser }) => {
     } catch (err) {
       console.log(err.message);
     }
-
   };
   const navigate = useNavigate();
   return (
@@ -70,27 +68,27 @@ const LoginPage = ({ user, setUser }) => {
       <img
         src="/assets/login/leftDown.png"
         alt="Decorative"
-        className="absolute left-0 bottom-0 max-h-50"
+        className="hidden lg:block absolute left-0 bottom-0 max-h-50"
       />
       <img
         src="/assets/login/leftUp.png"
         alt="Decorative"
-        className="absolute left-0 top-0 max-h-50"
+        className="hidden lg:block absolute left-0 top-0 max-h-50"
       />
       <img
         src="/assets/login/rightUp.png"
         alt="Decorative"
-        className="absolute right-0 top-0 max-h-50"
+        className="hidden lg:block absolute right-0 top-0 max-h-50"
       />
       <img
         src="/assets/login/rightDown.png"
         alt="Decorative"
-        className="absolute right-0 bottom-0 max-h-50"
+        className="hidden lg:block absolute right-0 bottom-0 max-h-50"
       />
 
       <div className="container mx-auto z-50">
         <div className="flex p-4 items-center justify-center">
-          <div className="w-10/12 lg:w-5/12 bg-white p-5 rounded shadow  ">
+          <div className="w-full lg:w-5/12 bg-white p-5 rounded shadow  ">
             <div className="flex items-center justify-center logo my-10">
               <Link to="/">
                 <img
@@ -128,17 +126,24 @@ const LoginPage = ({ user, setUser }) => {
               </button>
             </form>
             <p className="text-gray-500 my-3"> Ou </p>
-            <div className="boxes">
-            <GoogleLogin
-                  onSuccess={(credentialResponse) =>
+            <div className="boxes items-center justify-center flex-col">
+              <div className="w-full py-3">
+                {' '}
+                <GoogleLogin
+                  onSuccess={credentialResponse =>
                     loginSuccess(credentialResponse)
                   }
                   onError={() => {
-                    console.log("Login Failed");
+                    console.log('Login Failed');
                   }}
+                  width="100%"
                 />
+              </div>
               {ways.map((way, index) => (
-                <div className={` ${styles.authenticationBox}`} key={index}>
+                <div
+                  className={` ${styles.authenticationBox} w-full py-3`}
+                  key={index}
+                >
                   <img src={way.img} alt="" className="h-5 w-5" />
                   <span className="way-text ml-2">{way.text}</span>
                 </div>
