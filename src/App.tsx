@@ -127,6 +127,14 @@ function App() {
     0
   );
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+    }
+  }, [user]);
   //sidebar configurations
   const [isSideBarActive, setIsSideBarActive] = useState(false);
 
@@ -135,7 +143,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
 
       <Routes>
         <Route index path="/" element={<HomePage />} />
@@ -172,7 +180,7 @@ function App() {
             />
           }
         />
-        <Route path="login" element={<LoginPage setUser={setUser} />} />
+        <Route path="login" element={<LoginPage user={user} setUser={setUser} />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {isSmallScreen && (

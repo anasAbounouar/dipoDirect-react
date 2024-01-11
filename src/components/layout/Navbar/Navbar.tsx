@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import styles from './Navbar.module.scss';
-export default function Navbar() {
+export default function Navbar({ user, setUser }) {
   const wtspImage = '/assets/wtsp.svg';
   const [isClicked, setIsClicked] = useState(false);
   // useEffect that triggers when `isClicked` changes.
@@ -109,17 +109,35 @@ export default function Navbar() {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  onClick={() => setIsClicked(true)}
-                  to="/login"
-                  className={({ isActive }) =>
-                    isActive
-                      ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '
-                      : 'block py-2 px-3 rounded md:bg-transparent  md:p-0'
-                  }
-                >
-                  S'identifier
-                </NavLink>
+                {user ? (
+                  <NavLink
+                    onClick={() => {
+                      setIsClicked(true);
+                      localStorage.removeItem('user');
+                      setUser(null);
+                    }}
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive
+                        ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '
+                        : 'block py-2 px-3 rounded md:bg-transparent  md:p-0'
+                    }
+                  >
+                    Se deconnecter
+                  </NavLink>
+                ) : (
+                  <NavLink
+                    onClick={() => setIsClicked(true)}
+                    to="/login"
+                    className={({ isActive }) =>
+                      isActive
+                        ? 'bg-myBrand !text-white md:!text-myBrand block py-2 px-3 rounded md:bg-transparent md:p-0 '
+                        : 'block py-2 px-3 rounded md:bg-transparent  md:p-0'
+                    }
+                  >
+                    S'identifier
+                  </NavLink>
+                )}
               </li>
               <li>
                 <a

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AccountsData, toggleLogin } from '../../../data/Users.ts';
 import { GoogleLogin } from "@react-oauth/google";
@@ -17,23 +17,28 @@ const ways = [
   },
 ];
 
-const LoginPage = ({ setUser }) => {
+const LoginPage = ({ user, setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  useEffect(()=> {
+    if(user){
+      toggleLogin();
+      localStorage.setItem('user', JSON.stringify(user));
+      navigate('/');
+    }
+  }, [user]);
 
   const loginSuccess = async (resp) => {
     try {
-      const { user } = await axios.post(
+      const { data } = await axios.post(
         "https://dipo-direct-api.onrender.com/api/users/signin",
         {
           idToken: resp.credential,
           clientId: resp.clientId,
         }
       );
-      toggleLogin();
-      navigate('/');
-      setUser(user);
+      setUser(data);
     } catch (err) {
       console.log(err.message);
     }
@@ -42,16 +47,14 @@ const LoginPage = ({ setUser }) => {
   const loginUser = async () => {
 
     try {
-      const { user } = await axios.post(
+      const { data } = await axios.post(
         "https://dipo-direct-api.onrender.com/api/users/signin",
         {
           email,
           password,
         }
       );
-      toggleLogin();
-      navigate('/');
-      setUser(user);
+      setUser(data);
     } catch (err) {
       console.log(err.message);
     }
