@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AccountsData, toggleLogin } from '../../../data/Users.ts';
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin } from '@react-oauth/google';
 import styles from './Login.module.scss';
 import axios from 'axios';
 const ways = [
@@ -21,11 +21,10 @@ const LoginPage = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-
-  const loginSuccess = async (resp) => {
+  const loginSuccess = async resp => {
     try {
       const { user } = await axios.post(
-        "https://dipo-direct-api.onrender.com/api/users/signin",
+        'https://dipo-direct-api.onrender.com/api/users/signin',
         {
           idToken: resp.credential,
           clientId: resp.clientId,
@@ -40,10 +39,9 @@ const LoginPage = ({ setUser }) => {
   };
 
   const loginUser = async () => {
-
     try {
       const { user } = await axios.post(
-        "https://dipo-direct-api.onrender.com/api/users/signin",
+        'https://dipo-direct-api.onrender.com/api/users/signin',
         {
           email,
           password,
@@ -55,7 +53,6 @@ const LoginPage = ({ setUser }) => {
     } catch (err) {
       console.log(err.message);
     }
-
   };
   const navigate = useNavigate();
   return (
@@ -125,17 +122,24 @@ const LoginPage = ({ setUser }) => {
               </button>
             </form>
             <p className="text-gray-500 my-3"> Ou </p>
-            <div className="boxes">
-            <GoogleLogin
-                  onSuccess={(credentialResponse) =>
+            <div className="boxes items-center justify-center flex-col gap-3">
+              <div className="w-1/2">
+                {' '}
+                <GoogleLogin
+                  onSuccess={credentialResponse =>
                     loginSuccess(credentialResponse)
                   }
                   onError={() => {
-                    console.log("Login Failed");
+                    console.log('Login Failed');
                   }}
+                  width="100%"
                 />
+              </div>
               {ways.map((way, index) => (
-                <div className={` ${styles.authenticationBox}`} key={index}>
+                <div
+                  className={` ${styles.authenticationBox} w-1/2`}
+                  key={index}
+                >
                   <img src={way.img} alt="" className="h-5 w-5" />
                   <span className="way-text ml-2">{way.text}</span>
                 </div>

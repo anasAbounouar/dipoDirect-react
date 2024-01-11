@@ -136,23 +136,14 @@ export default function Items({
   // Step 1: Set up the state
   const [itemsData, setItemsData] = useState([]);
   const [isLoading, setIsloading] = useState(false);
-<<<<<<< HEAD
-  const port =
-    chosenLibrary === 'arrissala'
-      ? 3000
-      : chosenLibrary === 'aladnane'
-        ? 3001
-        : null;
-=======
-  const port = 3000
-    // chosenLibrary === 'arrissala'
-    //   ? 3000
-    //   : chosenLibrary === 'aladnane'
-    //     ? 8000
-    //     : chosenLibrary === 'topBleu'
-    //       ? '4000'
-    //       : null;
->>>>>>> 33c7a546eef4df74e966c0c067822b70ce62d7a9
+  const port = 3000;
+  // chosenLibrary === 'arrissala'
+  //   ? 3000
+  //   : chosenLibrary === 'aladnane'
+  //     ? 8000
+  //     : chosenLibrary === 'topBleu'
+  //       ? '4000'
+  //       : null;
   const handleSearchChange = useCallback(e => {
     // when I'm using the searchBar
     dispatch({ type: 'SEARCH_QUERY', payload: e.target.value });
@@ -160,7 +151,9 @@ export default function Items({
   useEffect(() => {
     setIsloading(true);
     // Step 2: Fetch the data
-    fetch(`https://dipo-direct-api.onrender.com/api/supplies/${chosenLibrary}/${type}`)
+    fetch(
+      `https://dipo-direct-api.onrender.com/api/supplies/${chosenLibrary}/${type}`
+    )
       .then(response => response.json())
       .then(data => {
         // Step 3: Set the state
@@ -385,7 +378,7 @@ export default function Items({
             <strong className="mx-1">{finalFilter().length}</strong> resultats
           </p>
 
-          {displayedItems.length >= itemsPerPage && (
+          {finalFilter().length >= itemsPerPage && (
             <div className="flex justify-end m-4">
               <button
                 onClick={prevPage}
@@ -459,7 +452,7 @@ export default function Items({
           )}
         </section>
 
-        {displayedItems.length >= itemsPerPage && (
+        {finalFilter().length >= itemsPerPage && (
           <div className="flex justify-end m-4">
             <button
               onClick={prevPage}
