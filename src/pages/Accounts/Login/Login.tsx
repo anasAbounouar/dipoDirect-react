@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AccountsData, toggleLogin } from '../../../data/Users.ts';
+import { GoogleLogin } from "@react-oauth/google";
 import styles from './Login.module.scss';
+import axios from 'axios';
 const ways = [
-  {
-    text: 'Continue with Google',
-    img: '/assets/login/google-logo.svg',
-    alt: 'Google logo',
-  },
   {
     text: 'Continue with Microsoft',
     img: '/assets/login/microsoft.svg',
@@ -24,17 +21,41 @@ const LoginPage = ({ setUser }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const loginUser = () => {
-    const user = AccountsData.find(user => {
-      return user.email === email && user.password === password;
-    });
-    if (user) {
+
+  const loginSuccess = async (resp) => {
+    try {
+      const { user } = await axios.post(
+        "https://dipo-direct-api.onrender.com/api/users/signin",
+        {
+          idToken: resp.credential,
+          clientId: resp.clientId,
+        }
+      );
       toggleLogin();
       navigate('/');
       setUser(user);
-    } else {
-      console.log('user not correct');
+    } catch (err) {
+      console.log(err.message);
     }
+  };
+
+  const loginUser = async () => {
+
+    try {
+      const { user } = await axios.post(
+        "https://dipo-direct-api.onrender.com/api/users/signin",
+        {
+          email,
+          password,
+        }
+      );
+      toggleLogin();
+      navigate('/');
+      setUser(user);
+    } catch (err) {
+      console.log(err.message);
+    }
+
   };
   const navigate = useNavigate();
   return (
@@ -105,6 +126,14 @@ const LoginPage = ({ setUser }) => {
             </form>
             <p className="text-gray-500 my-3"> Ou </p>
             <div className="boxes">
+            <GoogleLogin
+                  onSuccess={(credentialResponse) =>
+                    loginSuccess(credentialResponse)
+                  }
+                  onError={() => {
+                    console.log("Login Failed");
+                  }}
+                />
               {ways.map((way, index) => (
                 <div className={` ${styles.authenticationBox}`} key={index}>
                   <img src={way.img} alt="" className="h-5 w-5" />

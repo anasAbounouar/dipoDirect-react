@@ -19,6 +19,8 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@react-oauth/google": "^0.12.1",
+    "axios": "^1.6.5",
     "flowbite": "^2.2.1",
     "flowbite-react": "^0.7.2",
     "json-server": "^0.17.4",

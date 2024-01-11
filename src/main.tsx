@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 // import { library } from '@fortawesome/fontawesome-svg-core';
 // import { fab } from '@fortawesome/free-brands-svg-icons';
 // import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +14,8 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <App />
+    <GoogleOAuthProvider clientId="698434739976-ut7s02pbhoerilqcdal75sbqfdolpv6q.apps.googleusercontent.com">
+      <App />
+    </GoogleOAuthProvider>
   </React.StrictMode>
 );
