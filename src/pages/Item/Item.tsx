@@ -261,8 +261,8 @@ export default function Item({
                   </div>
                   <span>SKU: {item.id}</span>
                   {/* social media  */}
-                  <ul className="flex justify-between w-full px-0 mt-3 gap-1">
-                    <li>
+                  <ul className="flex justify-between w-full px-0 mt-3 gap-1 ">
+                    <li className="cursor-pointer">
                       <a
                         href="https://www.facebook.com/sharer/sharer.php?u=https://getbootstrap.com/docs/5.3/components/buttons/"
                         target="_blank"
@@ -282,7 +282,7 @@ export default function Item({
                         </svg>
                       </a>
                     </li>
-                    <li>
+                    <li className="cursor-pointer">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="33"
@@ -338,7 +338,7 @@ export default function Item({
                         </defs>
                       </svg>
                     </li>
-                    <li>
+                    <li className="cursor-pointer">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="34"
@@ -364,7 +364,7 @@ export default function Item({
                         </defs>
                       </svg>
                     </li>
-                    <li>
+                    <li className="cursor-pointer">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="33"
@@ -387,7 +387,7 @@ export default function Item({
                   </ul>
                 </div>
               </div>
-              <div className="w-full lg:w-1/2 p-4">
+              <div className="w-full lg:w-1/2 p-4 ">
                 {/* Pricing Info */}
                 <div className="text-xl font-semibold mb-4">
                   Sous panier:{' '}

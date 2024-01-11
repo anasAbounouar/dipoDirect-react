@@ -83,7 +83,7 @@ export default function Footer() {
             to="/privacy-policy"
             className="w-full flex px-1 py-3 sm:justify-center hover:underline p-2 text-myNonImportantText"
           >
-            Privacy Policy
+            Politique de Confidentialité
           </NavLink>
           <NavLink
             to="/terms-conditions"
@@ -95,7 +95,7 @@ export default function Footer() {
             to="/cookie-policy"
             className="w-full flex px-1 py-3 sm:justify-center hover:underline p-2 text-myNonImportantText"
           >
-            Cookie Policy
+            Politique de Cookies
           </NavLink>
           <NavLink
             to="/contact"

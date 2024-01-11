@@ -9,7 +9,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "server": "json-server --watch src/data/Arrissala/items.json --port 9000",
-    "json-server": "npx json-server --watch src/data/Arrissala/items.json --host 0.0.0.0"
+    "json-server": "npx json-server --watch src/data/Arrissala/items.json --host 0.0.0.0 --port 3000",
+    "start-arrissala": "npx json-server --watch src/data/Arrissala/items.json --host 0.0.0.0 --port 3000",
+    "start-aladnane": "npx json-server --watch src/data/Aladnane/items.json --host 0.0.0.0 --port 3001"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",

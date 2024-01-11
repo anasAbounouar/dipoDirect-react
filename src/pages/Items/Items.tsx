@@ -89,7 +89,7 @@ const typeOptions = [
   { label: 'Ecriture', value: 'ecritures', id: 0 },
   {
     label: 'Organisation',
-    value: 'Organisations',
+    value: 'organisation',
     id: 1,
   },
   {
@@ -99,7 +99,7 @@ const typeOptions = [
   },
 ];
 
-const itemsPerPage = 10; // Number of items to display per page
+const itemsPerPage = 12; // Number of items to display per page
 export default function Items({
   userShoppingSession,
   setUserShoppingSession,
@@ -140,10 +140,8 @@ export default function Items({
     chosenLibrary === 'arrissala'
       ? 3000
       : chosenLibrary === 'aladnane'
-        ? 8000
-        : chosenLibrary === 'topBleu'
-          ? '4000'
-          : null;
+        ? 3001
+        : null;
   const handleSearchChange = useCallback(e => {
     // when I'm using the searchBar
     dispatch({ type: 'SEARCH_QUERY', payload: e.target.value });
@@ -163,7 +161,7 @@ export default function Items({
         alert('error');
         setIsloading(false); // An error occurred, stop loading
       });
-  }, [type, port]); // The empty array ensures this effect runs once when the component mounts
+  }, [type, port, myLocalHost]); // The empty array ensures this effect runs once when the component mounts
 
   function filterBySearchTerm() {
     if (!state.searchBooksInput) {
@@ -217,8 +215,8 @@ export default function Items({
 
       return filterBySearchTerm().filter(
         item =>
-          itemsFilteredByLevel.includes(item) &&
-          itemsFilteredByLanguage.includes(item)
+          itemsFilteredByLevel?.includes(item) &&
+          itemsFilteredByLanguage?.includes(item)
       );
     } else {
       //other {type} than papeterie, get filtered only bye search term
@@ -229,7 +227,6 @@ export default function Items({
   // Calculate the start and end indices for the current page
   const startIndex = (state.currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
-
   const displayedItems = finalFilter().slice(startIndex, endIndex);
 
   const shouldShowPrev = state.currentPage > 1;
