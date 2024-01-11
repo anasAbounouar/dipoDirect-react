@@ -23,7 +23,7 @@ const LoginPage = ({ setUser }) => {
 
   const loginSuccess = async resp => {
     try {
-      const { user } = await axios.post(
+      const { data } = await axios.post(
         'https://dipo-direct-api.onrender.com/api/users/signin',
         {
           idToken: resp.credential,
@@ -32,7 +32,7 @@ const LoginPage = ({ setUser }) => {
       );
       toggleLogin();
       navigate('/');
-      setUser(user);
+      setUser(data);
     } catch (err) {
       console.log(err.message);
     }
@@ -40,7 +40,7 @@ const LoginPage = ({ setUser }) => {
 
   const loginUser = async () => {
     try {
-      const { user } = await axios.post(
+      const { data } = await axios.post(
         'https://dipo-direct-api.onrender.com/api/users/signin',
         {
           email,
@@ -49,7 +49,7 @@ const LoginPage = ({ setUser }) => {
       );
       toggleLogin();
       navigate('/');
-      setUser(user);
+      setUser(data);
     } catch (err) {
       console.log(err.message);
     }
@@ -122,8 +122,8 @@ const LoginPage = ({ setUser }) => {
               </button>
             </form>
             <p className="text-gray-500 my-3"> Ou </p>
-            <div className="boxes items-center justify-center flex-col gap-3">
-              <div className="w-1/2">
+            <div className="boxes items-center justify-center flex-col">
+              <div className="w-full py-3">
                 {' '}
                 <GoogleLogin
                   onSuccess={credentialResponse =>
@@ -137,7 +137,7 @@ const LoginPage = ({ setUser }) => {
               </div>
               {ways.map((way, index) => (
                 <div
-                  className={` ${styles.authenticationBox} w-1/2`}
+                  className={` ${styles.authenticationBox} w-full py-3`}
                   key={index}
                 >
                   <img src={way.img} alt="" className="h-5 w-5" />
