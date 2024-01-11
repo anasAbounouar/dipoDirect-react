@@ -29,7 +29,7 @@ export default function Item({
   useEffect(() => {
     setIsloading(true);
     // Step 2: Fetch the data
-    fetch(`http://${myLocalHost}:${port}/${type}`)
+    fetch(`https://dipo-direct-api.onrender.com/api/supplies/${chosenLibrary}/${type}`)
       .then(response => response.json())
       .then(data => {
         const item = data.books.find(item => {

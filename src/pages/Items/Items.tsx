@@ -136,14 +136,14 @@ export default function Items({
   // Step 1: Set up the state
   const [itemsData, setItemsData] = useState([]);
   const [isLoading, setIsloading] = useState(false);
-  const port =
-    chosenLibrary === 'arrissala'
-      ? 3000
-      : chosenLibrary === 'aladnane'
-        ? 8000
-        : chosenLibrary === 'topBleu'
-          ? '4000'
-          : null;
+  const port = 3000
+    // chosenLibrary === 'arrissala'
+    //   ? 3000
+    //   : chosenLibrary === 'aladnane'
+    //     ? 8000
+    //     : chosenLibrary === 'topBleu'
+    //       ? '4000'
+    //       : null;
   const handleSearchChange = useCallback(e => {
     // when I'm using the searchBar
     dispatch({ type: 'SEARCH_QUERY', payload: e.target.value });
@@ -151,7 +151,7 @@ export default function Items({
   useEffect(() => {
     setIsloading(true);
     // Step 2: Fetch the data
-    fetch(`http://${myLocalHost}:${port}/${type}`)
+    fetch(`https://dipo-direct-api.onrender.com/api/supplies/${chosenLibrary}/${type}`)
       .then(response => response.json())
       .then(data => {
         // Step 3: Set the state
