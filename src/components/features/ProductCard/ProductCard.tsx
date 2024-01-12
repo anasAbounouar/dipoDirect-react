@@ -162,10 +162,10 @@ export default function ProductCard({
 
         {/* Carousel container with Swiper */}
       </div>
-      <div className="w-7/12 lg:w-1/2  flex items-start justify-center  flex-col  lg:mx-7">
+      <div className="w-8/12 lg:w-1/2  flex items-start justify-center  flex-col  lg:mx-7">
         {/* Right Column with item details */}
 
-        <div className="title text-black  my-1 text-xl">
+        <div className="title text-black  my-3 text-xl">
           {' '}
           Titre : <span className="font-bold">{item.book.title}</span>
         </div>
