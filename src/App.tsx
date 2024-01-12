@@ -134,7 +134,7 @@ function App() {
       const parsedUser = JSON.parse(storedUser);
       setUser(parsedUser);
     }
-  }, [user]);
+  }, []);
   //sidebar configurations
   const [isSideBarActive, setIsSideBarActive] = useState(false);
 
