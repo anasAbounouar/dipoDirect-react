@@ -47,7 +47,7 @@ const MobileNavigationBar = ({
         {user ? (
           <li className="nav-item avatar flex items-center justify-center mt-1.5">
             <img
-              src={user?.imgSrc}
+              src="/assets/avatar.png"
               alt="User avatar"
               className="rounded-full max-w-10"
             />
